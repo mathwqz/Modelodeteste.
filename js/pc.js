@@ -28,3 +28,4 @@ document.querySelectorAll('.thumb').forEach(thumb => {
     zoomImg.src = thumb.dataset.large;
   });
 });
+// apague essa merda dps
