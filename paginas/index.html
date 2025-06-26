@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loja Online - EKLIPSE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 22px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      font-weight: bold;
+      color: #ff4e00;
+      z-index: 999;
+      text-decoration: none;
+    }
+    #cart-count {
+      margin-left: 5px;
+      background-color: #ff4e00;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="/paginas/index.html"></a>
+      <img src="/image/Design sem nome.png" alt="EKLIPSE Logo" class="logo-img" />
+    </div>
+
+    <input type="text" id="search" placeholder="Buscar produtos..." />
+
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">PC Gamer</a></li>
+        <li><a href="#">Hardware</a></li>
+        <li><a href="#">Periféricos</a></li>
+        <li><a href="#">Monitores</a></li>
+        <li><a href="#">Acessórios</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-actions">
+      <a href="/paginas/carrinho.html" class="cart">
+        🛒<span id="cart-count">0</span>
+      </a>
+      <a href="/paginas/login.html" class="login-icon">👤</a>
+    </div>
+  </header>
+
+  <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
+  <div id="floating-cart" style="display:none; position:fixed; top:70px; right:30px; background:white; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.15); padding:10px; border-radius:10px; max-width:300px; z-index:9999;">
+    <h4>Resumo do Carrinho</h4>
+    <ul id="cart-preview" style="list-style:none; padding:0; margin:0;"></ul>
+    <p><strong>Total:</strong> <span id="cart-preview-total">R$ 0,00</span></p>
+    <a href="/paginas/carrinho.html" style="color:#ff4e00; font-weight:bold; text-decoration:none;">Ir para o carrinho</a>
+  </div>
+
+  <!-- SCRIPT PARA ADICIONAR PRODUTO -->
+  <script>
+    function addToCart(produto) {
+      let cartList = JSON.parse(localStorage.getItem("cartList")) || [];
+      cartList.push(produto);
+      localStorage.setItem("cartList", JSON.stringify(cartList));
+
+      let cartCount = parseInt(localStorage.getItem("cartCount") || "0");
+      cartCount++;
+      localStorage.setItem("cartCount", cartCount);
+      document.getElementById("cart-count").textContent = cartCount;
+
+      showCartPreview();
+    }
+
+    function showCartPreview() {
+      const cart = JSON.parse(localStorage.getItem("cartList")) || [];
+      const preview = document.getElementById("cart-preview");
+      const total = document.getElementById("cart-preview-total");
+      preview.innerHTML = "";
+      let totalValor = 0;
+
+      cart.slice(-3).forEach(item => {
+        totalValor += item.preco;
+        const li = document.createElement("li");
+        li.style.marginBottom = "10px";
+        li.innerHTML = `
+          <img src="${item.imagem}" alt="${item.nome}" style="width:40px; vertical-align:middle; margin-right:10px;"> 
+          <a href="${item.link}" style="color:#333; text-decoration:none;">${item.nome}</a>
+        `;
+        preview.appendChild(li);
+      });
+
+      total.textContent = "R$ " + totalValor.toFixed(2).replace('.', ',');
+      document.getElementById("floating-cart").style.display = "block";
+    }
+
+    window.onload = function () {
+      const savedCount = parseInt(localStorage.getItem("cartCount")) || 0;
+      document.getElementById("cart-count").textContent = savedCount;
+      if (savedCount > 0) showCartPreview();
+    }
+  </script>
+
+  <!-- IMPORTANTE: Nos botões dos produtos use o novo formato abaixo: -->
+  <!--
+    <button onclick="addToCart({
+      nome: 'NOME DO PRODUTO',
+      preco: PRECO_EM_NUMERO,
+      imagem: 'URL_DA_IMAGEM',
+      link: '/paginas/detalhe.html'
+    })">COMPRAR</button>
+  -->
+
+
+ <div class="user-actions">
+  <a href="/paginas/carrinho.html" class="cart">
+    🛒<span id="cart-count">0</span>
+  </a>
+  <a href="/paginas/login.html" class="login-icon">👤</a>
+</div>
+  </header>
+
+  <!-- SLIDER -->
+  <section class="slider-container">
+    <div class="slider-wrapper" id="promo-slider">
+      <div class="slide active">
+        <img src="https://themes.kabum.com.br/conteudo/layout/6549/1749581108.gif" alt="Promoção 1" />
+      </div>
+      <div class="slide">
+        <img src="https://themes.kabum.com.br/conteudo/layout/6577/1750161583.png" alt="Promoção 2" />
+      </div>
+      <div class="slide">
+        <img src="https://themes.kabum.com.br/conteudo/layout/6552/1749583765.png" alt="Promoção 3" />
+      </div>
+    </div>
+    <button class="nav prev" aria-label="Slide anterior" onclick="moveSlide(-1)">❮</button>
+    <button class="nav next" aria-label="Próximo slide" onclick="moveSlide(1)">❯</button>
+    <div class="slider-dots" id="slider-dots"></div>
+  </section>
+
+  <!-- WRAPPER COM FILTRO E PRODUTOS -->
+  <div class="wrapper">
+    <!-- SIDEBAR (FILTROS) -->
+    <aside class="sidebar">
+      <h2>Categorias relacionadas</h2>
+      <ul class="filtros-categorias">
+        <li><a href="#">Mouse Gamer</a></li>
+        <li><a href="#" class="filtro-categoria" data-filtro="com-fio">Com Fio</a></li>
+        <li><a href="#" class="filtro-categoria" data-filtro="sem-fio">Sem Fio</a></li>
+        <li><a href="#" class="filtro-categoria" data-filtro="acessorios">Acessórios para Mouse Gamer</a></li>
+      </ul>
+
+      <div class="filter-box">
+        <h3>Vendido por</h3>
+        <label><input type="checkbox" class="filtro" data-filtro="kabum"> EKLIPSE!</label>
+      </div>
+
+      <div class="filter-box">
+        <h3>TOP OFERTA</h3>
+        <label><input type="checkbox" class="filtro" data-filtro="frete-gratis"> 🚚 Frete grátis</label><br>
+        <label><input type="checkbox" class="filtro" data-filtro="openbox"> 🐱 OpenBox</label><br>
+        <label><input type="checkbox" class="filtro" data-filtro="prime-ninja"> ✨ Prime Ninja</label>
+      </div>
+
+      <div class="filter-box">
+        <h3>Preço</h3>
+        <label>Intervalo de Preço</label>
+        <input type="range" min="500" max="6000" step="100" id="range-min" value="500" oninput="updateRange()">
+        <input type="range" min="500" max="6000" step="100" id="range-max" value="6000" oninput="updateRange()">
+        <div class="range-output">
+          <span id="output-min">R$ 500</span> - <span id="output-max">R$ 6000</span>
+        </div>
+        <div class="price-inputs">
+          <input type="number" id="preco-min" placeholder="Mínimo">
+          <input type="number" id="preco-max" placeholder="Máximo">
+        </div>
+        <button class="btn-filter" onclick="aplicarFiltros()">Aplicar Filtros</button>
+        <button class="btn-reset" onclick="resetarFiltros()">Limpar</button>
+      </div>
+    </aside>
+
+    <!-- PRODUTOS -->
+    <main class="products">
+      <h2 class="titulo-produtos">Confira nossos produtos em destaque</h2>
+      <div id="product-grid" class="product-grid">
+        <!-- Exemplo de Cards -->
+        <div class="card com-fio frete-gratis kabum">
+          <a href="/paginas/pages.html" class="card-link"></a>
+          <img src="https://cdn.dooca.store/1841/products/cyberpunk-completo-preto.jpg?v=1734956752" alt="PC Gamer" />
+          <div class="card-body">
+            <h4>PC Gamer</h4>
+            <span class="frete-gratis">Frete grátis</span>
+            <p class="preco-antigo">R$ 2.499,00</p>
+            <p class="preco-destaque">R$ 2.199,00</p>
+            <p class="parcelamento">ou 10x de R$ 219,90</p>
+            <button class="card-button" onclick="addToCart()">COMPRAR</button>
+          </div>
+        </div>
+        
+      <div class="card sem-fio prime-ninja">
+          <a href="/pages.html" class="card-link"></a>
+          <img src="https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg" alt="Mouse Gamer" />
+          <div class="card-body">
+            <h4>Mouse Gamer Razer Viper V3</h4>
+            <span class="frete-gratis">Frete grátis</span>
+            <p class="preco-antigo">R$ 329,99</p>
+            <p class="preco-destaque">R$ 299,99</p>
+            <p class="parcelamento">ou 10x de R$ 29,99</p>
+            <button class="card-button">COMPRAR</button>
+          </div>
+        </div>
+
+            <div class="card">
+          <img src="https://ae01.alicdn.com/kf/Sd42516e6721d4e0b92c82b5f39b8b1782.jpg" alt="RTX 3070 Soyo" />
+          <div class="card-body">
+            <h4>RTX 3070 Soyo</h4>
+            <p>Categoria: GPU</p>
+            <p class="preco-antigo">2.799,99</p>
+            <p class="preco-destaque">R$ 2.499,99</p>
+            <p class="parcelamento">ou 10x de R$ 249,99</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_955530-MLA84534338900_052025-O.webp" alt="Monitor Gamer 24''" />
+          <div class="card-body">
+            <h4>Monitor Gamer 24'</h4>
+            <p>Categoria: Monitor</p>
+            <p class="preco-antigo">R$ 609,99</p>
+            <p class="preco-destaque">R$ 539,99</p>
+            <p class="parcelamento">ou 10x de R$ 53,99</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRbKsgdig-CUNE84qR3nKB7GvQs6R7OpsZZqNWb8JWK5rdj0oU6--uZ3sSOXyzhWecc9-mBcOHfJyRnNsQKfDfwu2kwQ8RJtB2OzVYNxHZPeNfaDEKdyHP1eMmuXCncES4st16rdw&usqp=CAc" alt="Memória 16GB DDR4" />
+          <div class="card-body">
+            <h4>Memória 16GB DDR4</h4>
+            <p>Categoria: Memória</p>
+            <p class="preco-antigo">R$ 499,99</p>
+            <p class="preco-destaque">R$ 399,99</p>
+            <p class="parcelamento">ou 10x de R$ 39,99</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_gg.jpg" alt="Placa Mãe" />
+          <div class="card-body">
+            <h4>Placa Mãe ASUS TUF</h4>
+            <p>Categoria: Placa Mãe</p>
+            <p class="preco-antigo">R$ 699,99</p>
+            <p class="preco-destaque">R$ 599,99</p>
+            <p class="parcelamento">ou 10x de R$ 59,99</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+      
+
+        <div class="card">
+           <a href="/paginas/nvidea.html" class="card-link"></a>
+          <img src="https://images.kabum.com.br/produtos/fotos/402564/placa-de-video-rtx-4070-ti-gigabyte-nvidia-geforce-12-gb-gddr6x-dlss-3-ray-tracing-gv-n407teagle-oc-12gd_1672920613_gg.jpg" alt="Placa de Vídeo" />
+          <div class="card-body">
+            <h4>NVIDIA RTX 4070 Ti</h4>
+            <p>Categoria: GPU</p>
+            <p class="preco-antigo">R$ 5.000,00</p>
+            <p class="preco-destaque">R$ 4.500,00
+            <p class="parcelamento">ou 10x de R$ 450,00</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.kabum.com.br/produtos/fotos/365024/monitor-gamer-curvo-concordia-27-led-full-hd-r1500-200hz-1ms-hdmi-displayport-freesync-som-integrado-preto-cz270f_1658258836_gg.jpg" alt="Monitor Curvo" />
+          <div class="card-body">
+            <h4>Monitor Curvo 27''</h4>
+            <p>Categoria: Monitor</p>
+            <p class="preco-antigo">R$ 679,00</p>
+            <p class="preco-destaque">R$ 599,99</p>
+            <p class="parcelamento">ou 10x de R$ 59,99</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://img.terabyteshop.com.br/produto/g/memoria-ddr4-kingston-fury-beast-rgb-32gb-4x8gb-3200mhz-preto-kf432c16bb2ak432_178449.jpg" alt="Memória RAM" />
+          <div class="card-body">
+            <h4>Memória RAM 32GB DDR4</h4>
+            <p>Categoria: Memória</p>
+            <p class="preco-antigo">R$ 899,99</p>
+            <p class="preco-destaque">R$ 699,99</p>
+            <p class="parcelamento">ou 10x de R$ 69,99</p>
+            <button>Comprar</button>
+          </div>
+        </div>
+
+        <div class="card sem-fio prime-ninja">
+          <a href="/pages.html" class="card-link"></a>
+          <img src="/image/unnamed.jpg" alt="Mouse Gamer" />
+          <div class="card-body">
+            <h4>Kit Gamer</h4>
+            <p>Categoria: Kits</p>
+            <p class="preco-antigo">R$ 800</p>
+            <p class="preco-destaque">R$ 699,99</p>
+            <p class="parcelamento">ou 10x de R$ 69,99,</p>
+            <button class="card-button">COMPRAR</button>
+          </div>
+        </div>
+
+        <div class="card sem-fio prime-ninja">
+          <a href="/pages.html" class="card-link"></a>
+          <img src="https://images2.kabum.com.br/produtos/fotos/416202/teclado-gamer-rise-mode-g1-full-usb-preto-rm-tg-01-fb_1715018384_g.jpg" alt="Mouse Gamer" />
+          <div class="card-body">
+            <h4>Mouse Gamer Razer Viper V3</h4>
+              <p>Categoria: Periféricos</p>
+            <p class="preco-antigo">R$ 37,49</p>
+            <p class="preco-destaque">R$ 29,99</p>
+            <p class="parcelamento">ou 10x de R$ 2,99</p>
+            <button class="card-button">COMPRAR</button>
+          </div>
+        </div>
+
+        <div class="card sem-fio prime-ninja">
+          <a href="/pages.html" class="card-link"></a>
+          <img src="https://images6.kabum.com.br/produtos/fotos/516146/fone-de-ouvido-sem-fio-kabum-tech-bluetooth-preto-ktft500pt_1721248095_g.jpg" alt="Mouse Gamer" />
+          <div class="card-body">
+            <h4>Mouse Gamer Razer Viper V3</h4>
+            <p>Categoria: Periféricos</p>
+            <p class="preco-antigo">R$ 77,90</p>
+            <p class="preco-destaque">R$ 59,99</p>
+            <p class="parcelamento">ou 10x de R$ 5,99 </p>
+            <button class="card-button">COMPRAR</button>
+          </div>
+        </div>
+
+        <!-- Continue seus outros cards normalmente... -->
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 EKLIPSE - todos os direitos estão reservados</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="/js/script.js"></script>
+ <style>
+  .cart {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 22px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    color: #ff4e00;
+    z-index: 999;
+  }
+
+  #cart-count {
+    margin-left: 5px;
+    background-color: #ff4e00;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+</style>
+  <script>
+  let cartCount = 0;
+
+  function addToCart() {
+    cartCount++;
+    document.getElementById("cart-count").textContent = cartCount;
+  }
+
+    function updateRange() {
+      const min = document.getElementById("range-min").value;
+      const max = document.getElementById("range-max").value;
+      document.getElementById("output-min").textContent = `R$ ${min}`;
+      document.getElementById("output-max").textContent = `R$ ${max}`;
+      document.getElementById("preco-min").value = min;
+      document.getElementById("preco-max").value = max;
+    }
+
+    function aplicarFiltros() {
+      const filtrosAtivos = Array.from(document.querySelectorAll('.filtro:checked')).map(cb => cb.dataset.filtro);
+      const precoMin = parseFloat(document.getElementById('preco-min').value.replace('R$', '').replace(',', '.')) || 0;
+      const precoMax = parseFloat(document.getElementById('preco-max').value.replace('R$', '').replace(',', '.')) || Infinity;
+
+      document.querySelectorAll('.product-grid .card').forEach(card => {
+        const precoEl = card.querySelector('.preco-destaque');
+        const precoTexto = precoEl ? precoEl.textContent.replace(/[^\d,]/g, '').replace(',', '.') : '0';
+        const preco = parseFloat(precoTexto);
+
+        const temFiltro = filtrosAtivos.length === 0 || filtrosAtivos.every(f => card.classList.contains(f));
+        const dentroDoPreco = preco >= precoMin && preco <= precoMax;
+
+        if (temFiltro && dentroDoPreco) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function resetarFiltros() {
+      document.querySelectorAll('.filtro').forEach(cb => cb.checked = false);
+      document.getElementById("range-min").value = 500;
+      document.getElementById("range-max").value = 6000;
+      updateRange();
+      document.getElementById("preco-min").value = "";
+      document.getElementById("preco-max").value = "";
+      document.querySelectorAll('.product-grid .card').forEach(card => card.style.display = 'flex');
+    }
+
+    function updateRange() {
+      const min = document.getElementById("range-min").value;
+      const max = document.getElementById("range-max").value;
+      document.getElementById("output-min").textContent = `R$ ${min}`;
+      document.getElementById("output-max").textContent = `R$ ${max}`;
+      document.getElementById("preco-min").value = min;
+      document.getElementById("preco-max").value = max;
+    }
+
+    function aplicarFiltros() {
+      const filtrosAtivos = Array.from(document.querySelectorAll('.filtro:checked')).map(cb => cb.dataset.filtro);
+      const precoMin = parseFloat(document.getElementById('preco-min').value) || 0;
+      const precoMax = parseFloat(document.getElementById('preco-max').value) || Infinity;
+
+      document.querySelectorAll('.product-grid .card').forEach(card => {
+        const precoTexto = card.querySelector('.preco-destaque')?.textContent.replace(/[^\d,]/g, '').replace(',', '.');
+        const preco = parseFloat(precoTexto) || 0;
+
+        const temFiltro = filtrosAtivos.every(f => card.classList.contains(f));
+        const dentroDoPreco = preco >= precoMin && preco <= precoMax;
+
+        if (temFiltro && dentroDoPreco) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function resetarFiltros() {
+      document.querySelectorAll('.filtro').forEach(cb => cb.checked = false);
+      document.getElementById("range-min").value = 500;
+      document.getElementById("range-max").value = 6000;
+      updateRange();
+      document.getElementById("preco-min").value = "";
+      document.getElementById("preco-max").value = "";
+      document.querySelectorAll('.product-grid .card').forEach(card => card.style.display = 'flex');
+    }
+  </script>
+</body>
+</html>

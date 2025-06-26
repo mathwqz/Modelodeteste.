@@ -19,6 +19,10 @@ body {
   min-height: 100vh; /* garante altura mínima de tela cheia */
 }
 
+h2{
+  color: #ffffff;
+}
+
 ul {
   color: #ff4e00;
   margin: 0;
@@ -241,65 +245,68 @@ h2{
   background-color: #ff6600;
 }
 
-/* WRAPPER PRINCIPAL - SIDEBAR + PRODUTOS */
 .wrapper {
   display: flex;
   gap: 20px;
   padding: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-
-/* SIDEBAR */
 .sidebar {
-  flex: 0 0 250px; /* largura fixa */
-  background: #fff;
+  flex: 0 0 260px;
+  background: #ff5e00be;
   padding: 1.5rem 1.25rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  height: fit-content;
   position: sticky;
-  top: 1rem;
+  top: 20px;
+  height: fit-content;
+  color: #000000;
 }
 
-.sidebar h2 {
-  margin-bottom: 1rem;
+
+.filter-box {
+  background: #00000056;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.filter-box h3 {
   color: #e6791e;
-  font-weight: 700;
-  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-size: 1rem;
 }
 
-/* BOTÕES FILTRO */
-.btn-filter {
-  width: 100%;
-  padding: 0.6rem;
-  background: #ff6600;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.filtros-categorias li {
+  margin-bottom: 6px;
+}
+
+.filtros-categorias a {
+  color: #ffffff;
+  text-decoration: none;
   font-weight: bold;
-  margin-bottom: 10px;
-  transition: background 0.3s;
+  font-size: 0.92rem;
 }
 
-.btn-filter:hover {
-  background: #cc5200;
+.filtros-categorias a:hover {
+  color: #ff6600;
 }
 
-.btn-reset {
+.range-output {
+  margin: 8px 0;
+  font-size: 0.85rem;
+  color: #000000;
+}
+
+input[type="range"] {
   width: 100%;
-  padding: 0.6rem;
-  background: #e6791e;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  margin-top: 5px;
 }
 
-.btn-reset:hover {
-  background: #c15b0a;
-}
 
 /* INPUTS DE PREÇO */
 .price-inputs {
@@ -319,11 +326,9 @@ h2{
 /* PRODUTOS */
 .products {
   flex: 1;
-  margin: 32px 0;
+  margin: 0;
   padding: 0 16px;
-  max-width: none; /* ou remova */
 }
-
 
 .products h1 {
   font-size: 2rem;
@@ -436,11 +441,10 @@ h2{
   z-index: 2;
 }
 
-
 /* FOOTER */
 footer {
-  background: #23272a;
-  color: #fff;
+  background: #050505;
+  color: #ff5e00;
   text-align: center;
   padding: 16px 0;
   margin-top: 32px;

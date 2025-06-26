@@ -21,7 +21,7 @@ function buscarProdutos() {
 campoBusca.addEventListener("input", buscarProdutos);
 
 // ============================
-// SLIDER DE PROMOÇÕES
+// SLIDER DE PROMOÇÕES ka
 // ============================
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");

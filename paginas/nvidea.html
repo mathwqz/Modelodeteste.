@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EKLIPSE - NVIDIA RTX 4070 Ti</title>
+  <link rel="stylesheet" href="/css/paginapc.css" />
+  <style>
+    .thumb.active {
+      border: 2px solid #ff4e00;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .tab.active { font-weight: bold; color: #ff4e00; }
+    .img-zoom-lente {
+      position: absolute;
+      border: 1px solid #ccc;
+      width: 100px;
+      height: 100px;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="/paginas/index.html">
+        <img src="/image/Design sem nome.png" alt="EKLIPSE Logo" class="logo-img" />
+      </a>
+    </div>
+    <input type="text" id="search" placeholder="Buscar produtos..." />
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">PC Gamer</a></li>
+        <li><a href="#">Hardware</a></li>
+        <li><a href="#">Periféricos</a></li>
+        <li><a href="#">Monitores</a></li>
+        <li><a href="#">Acessórios</a></li>
+      </ul>
+    </nav>
+    <div class="cart">🛒<span id="cart-count">0</span></div>
+  </header>
+
+  <main class="produto-page">
+    <div class="top-section">
+      <div class="galeria">
+        <div class="thumbnails">
+          <img src="https://images.kabum.com.br/produtos/fotos/410603/placa-de-video-nvidia-geforce-rtx-4070-ti-12gb-gddr6x_1673277283_gg.jpg" data-large="https://images.kabum.com.br/produtos/fotos/410603/placa-de-video-nvidia-geforce-rtx-4070-ti-12gb-gddr6x_1673277283_gg.jpg" class="thumb active" alt="Miniatura 1">
+        </div>
+        <div class="imagem-principal" style="position: relative;">
+          <img id="zoom-img" src="https://images.kabum.com.br/produtos/fotos/410603/placa-de-video-nvidia-geforce-rtx-4070-ti-12gb-gddr6x_1673277283_gg.jpg" alt="NVIDIA RTX 4070 Ti">
+          <div id="zoom-lente" class="img-zoom-lente"></div>
+        </div>
+      </div>
+
+      <div class="info">
+        <h1>Placa de Vídeo NVIDIA GeForce RTX 4070 Ti 12GB GDDR6X</h1>
+        <div class="promo">Categoria: <strong>GPU</strong></div>
+        <div class="preco">R$ 4.500,00 <span class="pix">(à vista no PIX)</span></div>
+        <p class="preco-antigo" style="text-decoration: line-through; color: #ccc">R$ 5.000,00</p>
+        <div class="parcelamento">ou 10x de R$ 450,00 sem juros</div>
+
+        <button id="comprarBtn" class="comprar">COMPRAR</button>
+
+        <button onclick="addToCart({
+          nome: 'NVIDIA RTX 4070 Ti',
+          preco: 4500.00,
+          imagem: 'https://images.kabum.com.br/produtos/fotos/410603/placa-de-video-nvidia-geforce-rtx-4070-ti-12gb-gddr6x_1673277283_gg.jpg',
+          link: '/Eklipse-coding/paginas/carrinho.html'
+        })">Adicionar ao Carrinho</button>
+
+        <div class="frete">Frete Grátis*</div>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <div class="tab active" data-tab="descricao">Descrição do Produto</div>
+      <div class="tab" data-tab="tecnica">Informações Técnicas</div>
+      <div class="tab" data-tab="avaliacoes">Avaliações dos Usuários</div>
+    </nav>
+
+    <section id="descricao" class="tab-content descricao active">
+      <h2>Descrição do Produto</h2>
+      <p>Alcance gráficos incríveis com a RTX 4070 Ti! Potência de sobra para jogos em 4K, desempenho excepcional e suporte às mais modernas tecnologias da NVIDIA. Prepare-se para o futuro do gaming com essa GPU incrível.</p>
+    </section>
+
+    <section id="tecnica" class="tab-content tecnica">
+      <h2>Informações Técnicas</h2>
+      <dl>
+        <dt>Modelo</dt><dd>NVIDIA GeForce RTX 4070 Ti</dd>
+        <dt>Memória</dt><dd>12GB GDDR6X</dd>
+        <dt>Interface</dt><dd>PCI Express 4.0</dd>
+        <dt>Saídas</dt><dd>HDMI, DisplayPort</dd>
+        <dt>Resolução Máxima</dt><dd>7680 x 4320</dd>
+        <dt>Ray Tracing</dt><dd>Sim</dd>
+        <dt>TDP</dt><dd>285W</dd>
+        <dt>Refrigeração</dt><dd>Fans Triplos</dd>
+      </dl>
+    </section>
+
+    <section id="avaliacoes" class="tab-content avaliacoes">
+      <div class="avaliacoes-header">
+        <div class="nota">5/5</div>
+        <div class="estrelas">★★★★★ <span>(22 avaliações)</span></div>
+      </div>
+      <div class="cards-avaliacao">
+        <div class="card">
+          <h4>Renato</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 15/06/2025</div>
+          <p>Simplesmente absurda! Roda tudo no ultra.</p>
+          <div class="util">Útil (6)</div>
+        </div>
+        <div class="card">
+          <h4>Lívia</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 12/06/2025</div>
+          <p>Maravilhosa! Melhor investimento que fiz.</p>
+          <div class="util">Útil (4)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EKLIPSE - Inspirado em Terabyte, Pichau e Kabum</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    document.getElementById('comprarBtn').addEventListener('click', () => {
+      const isUserLoggedIn = false;
+      if (!isUserLoggedIn) {
+        window.location.href = '/Eklipse-coding/login/login.html';
+      } else {
+        window.location.href = '/checkout?add=4070TI&qty=1';
+      }
+    });
+
+    function addToCart(produto) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push(produto);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      document.getElementById('cart-count').textContent = carrinho.length;
+    }
+
+    const zoomImg = document.getElementById('zoom-img');
+    const lens = document.getElementById('zoom-lente');
+    const cx = 2;
+
+    zoomImg.addEventListener('mousemove', moveLens);
+    zoomImg.addEventListener('mouseenter', () => lens.style.visibility = 'visible');
+    zoomImg.addEventListener('mouseleave', () => lens.style.visibility = 'hidden');
+
+    function moveLens(e) {
+      const rect = zoomImg.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      const half = lens.offsetWidth / 2;
+      x = Math.max(half, Math.min(x, zoomImg.width - half));
+      y = Math.max(half, Math.min(y, zoomImg.height - half));
+      lens.style.left = (x - half) + 'px';
+      lens.style.top = (y - half) + 'px';
+      lens.style.backgroundImage = `url('${zoomImg.src}')`;
+      lens.style.backgroundSize = `${zoomImg.width * cx}px ${zoomImg.height * cx}px`;
+      lens.style.backgroundPosition = `-${(x * cx) - half}px -${(y * cx) - half}px`;
+    }
+  </script>
+</body>
+</html>
