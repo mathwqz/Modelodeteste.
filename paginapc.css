@@ -1,0 +1,252 @@
+
+.related-products {
+  background: #111;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 40px;
+  color: white;
+  text-align: center;
+}
+
+.related-products h3 {
+  font-size: 24px;
+  color: #ff4e00;
+  margin-bottom: 20px;
+}
+
+.related-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+.related-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px 0;
+  max-width: 100%;
+}
+
+.related-card {
+  flex: 0 0 auto;
+  width: 160px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.related-card img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  height: 100px;
+}
+
+.related-price {
+  margin-top: 8px;
+  color: #ff4e00;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.related-nav {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #ff4e00;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.related-nav:hover {
+  transform: scale(1.2);
+}
+
+
+/* Reset básico */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      color: #f5f5f5;
+      /* Fundo graffiti escuro */
+      background-color: #0f0f0f;
+      background-image: url('https://wallpapers.com/images/hd/black-and-white-graffiti-in-grafton-street-00tqxgdxyu7xdfg8.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-blend-mode: multiply;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    /* Header principal */
+    .main-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background-color: rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+    }
+    .logo-img { height: 180px; max-width: 400px; object-fit: contain; }
+    #search {
+      flex: 1;
+      max-width: 350px;
+      padding: 10px 40px 10px 15px;
+      border: 2px solid #ccc;
+      border-radius: 25px;
+      background: url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat right 10px center;
+      background-size: 20px;
+      transition: border-color .3s, box-shadow .3s, background-color .3s;
+    }
+    #search:focus { border-color: #ff6600; box-shadow: 0 0 8px #ff6600; background-color: #fff; }
+
+    /* Navegação */
+    .nav-links ul { display: flex; gap: 24px; }
+    .nav-links a {
+      padding: 8px 16px;
+      background-color: rgba(0,0,0,0.5);
+      color: #ff6600;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background .3s, transform .3s, box-shadow .3s;
+    }
+    .nav-links a:hover {
+      background-color: #cc3c00;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(255,78,0,0.4);
+    }
+
+    /* Container de produto */
+    .produto-page {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: rgba(0,0,0,0.8);
+      box-shadow: 0 0 12px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .top-section { display: flex; flex-wrap: wrap; padding: 20px; }
+
+    /* Galeria de imagens */
+    .galeria { display: flex; }
+    .thumbnails { display: flex; flex-direction: column; margin-right: 10px; }
+    .thumbnails img {
+      width: 60px; height: 60px; margin-bottom: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .thumbnails img.active { border-color: #ff6600; }
+    .imagem-principal { position: relative; flex: 1; min-width: 300px; max-width: 500px; }
+    .imagem-principal img { width: 100%; display: block; }
+    .img-zoom-lente {
+      position: absolute;
+      width: 120px; height: 120px;
+      border: 2px solid #000;
+      visibility: hidden;
+      cursor: none;
+    }
+
+    /* Informações do produto */
+    .info { flex: 1; padding: 0 20px; }
+    .info h1 { font-size: 22px; margin-bottom: 12px; color: #fff; }
+    .promo { font-size: 14px; color: #ccc; }
+    .preco { font-size: 32px; color: #ff6600; font-weight: bold; margin: 8px 0; }
+    .pix { font-size: 14px; color: #ccc; }
+    .parcelamento { font-size: 16px; color: #ccc; margin-bottom: 20px; }
+    .comprar, .carrinho {
+      background: #ff6600;
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background .3s;
+    }
+    .comprar:hover, .carrinho:hover { background: #cc5200; }
+    .frete { margin-top: 10px; color: #0f0; font-weight: bold; }
+
+    /* Abas (tabs) */
+    .tabs { display: flex; border-bottom: 2px solid #444; margin-top: 20px; }
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      position: relative;
+      color: #ccc;
+      transition: color .3s;
+    }
+    .tab.active { color: #ff6600; }
+    .tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 3px;
+      background: #ff6600;
+    }
+    .tab-content { display: none; padding: 20px; color: #eee; }
+    .tab-content.active { display: block; }
+
+    /* Descrição e técnica */
+    .descricao p { line-height: 1.6; margin-top: 10px; }
+    .tecnica dt { font-weight: bold; margin-top: 12px; }
+    .tecnica dd { margin: 4px 0 0 16px; }
+
+    /* Avaliações */
+    .avaliacoes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .nota { font-size: 36px; color: #ff6600; }
+    .estrelas { font-size: 18px; color: #ff6600; }
+    .filtros select {
+      padding: 6px 10px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+    .cards-avaliacao {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #111;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.5);
+      color: #eee;
+    }
+    .card h4 { margin-bottom: 6px; }
+    .card .data { font-size: 12px; color: #888; }
+    .card .estrela { color: #ff6600; margin-bottom: 6px; }
+    .card .util { margin-top: 10px; font-size: 14px; color: #ccc; }
+
+    /* Footer */
+    footer {
+      background: #23272a;
+      color: #fff;
+      text-align: center;
+      padding: 16px 0;
+      margin-top: 32px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .top-section { flex-direction: column; }
+      .imagem-principal { width: 100%; margin-bottom: 20px; }
+    }

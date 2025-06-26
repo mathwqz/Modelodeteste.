@@ -1,0 +1,447 @@
+body {
+  background-color: #000000ce;
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  /* Cor de fundo fallback */
+  background-color: #0f0f0f;
+
+  /* Imagem de fundo estilizada */
+  background-image: url('https://wallpapers.com/images/hd/black-and-white-graffiti-in-grafton-street-00tqxgdxyu7xdfg8.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;        /* cobre toda a tela */
+  background-attachment: fixed;  /* permanece fixa ao rolar */
+  background-position: center;   /* centralizada */
+  background-blend-mode: multiply; /* mescla a imagem com o fundo */
+  background-color: rgba(0, 0, 0, 0.493); /* efeito de escurecimento */
+
+  color: #fffdfd77;  /* texto legível sobre fundo escuro */
+  min-height: 100vh; /* garante altura mínima de tela cheia */
+}
+
+ul {
+  color: #ff4e00;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  color: #f5f5f5;
+  border-radius: 12px;
+}
+
+.titulo-produtos {
+  background-color: #ff4e00;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #ce7b48;
+  padding-bottom: 10px;
+}
+
+h2{
+  color: #000000;
+}
+
+/* HEADER PRINCIPAL */
+.main-header {
+  background: #00000048;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 180px;     /* altura aumentada */
+  max-width: 400px;  /* largura máxima controlada */
+  width: auto;
+  object-fit: contain;
+}
+
+/* SEARCH */
+#search {
+  flex: 1;
+  max-width: 350px;
+  padding: 10px 40px 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  background: url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat right 10px center;
+  background-size: 20px 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search::placeholder {
+  color: #aaa;
+}
+
+#search:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 8px #ff6600;
+  background-color: #fff;
+}
+
+.main-header {
+  background-image: url(""); /* Caminho para sua imagem */
+  background-size: cover;
+  background-position: center;
+  height: 200px; /* Defina uma altura adequada */
+}
+
+
+/* NAVIGATION LINKS */
+.nav-links ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  background-color: #00000080;      /* cor vibrante estilo eclipse */
+  color: #ff6600;                 /* texto branco visível */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;              /* espaço interno */
+  border-radius: 6px;             /* bordas arredondadas */
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a:hover {
+  background-color: #cc3c00;      /* escurece no hover */
+  color: #fff;
+  transform: translateY(-2px);    /* efeito de elevação */
+  box-shadow: 0 4px 10px rgba(255, 78, 0, 0.4);
+}
+
+.nav-links a:hover {
+  color: #ff6600;
+}
+
+/* CART */
+.cart {
+  font-size: 1.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+#cart-count {
+  background: #ff6600;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 0.9rem;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+/* SLIDER */
+.slider-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Setas do slider */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.nav:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Bolinhas do slider */
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.slider-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dots button.active {
+  background-color: #ff6600;
+}
+
+/* WRAPPER PRINCIPAL - SIDEBAR + PRODUTOS */
+.wrapper {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+  flex: 0 0 250px; /* largura fixa */
+  background: #fff;
+  padding: 1.5rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  color: #e6791e;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* BOTÕES FILTRO */
+.btn-filter {
+  width: 100%;
+  padding: 0.6rem;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+  transition: background 0.3s;
+}
+
+.btn-filter:hover {
+  background: #cc5200;
+}
+
+.btn-reset {
+  width: 100%;
+  padding: 0.6rem;
+  background: #e6791e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-reset:hover {
+  background: #c15b0a;
+}
+
+/* INPUTS DE PREÇO */
+.price-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.price-inputs input {
+  width: 80px;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* PRODUTOS */
+.products {
+  flex: 1;
+  margin: 32px 0;
+  padding: 0 16px;
+  max-width: none; /* ou remova */
+}
+
+
+.products h1 {
+  font-size: 2rem;
+  color: #e6791e;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* GRID DE PRODUTOS */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARD INDIVIDUAL */
+.card {
+  background: #111010;
+  border: 1px solid #9e4e19;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* IMAGEM DO PRODUTO */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+/* CONTEÚDO DO CARD */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* TÍTULO */
+.card-body h4 {
+  font-size: 0.95rem;
+  color: #ffffff;
+  height: 2.5em;
+  line-height: 1.2em;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* DESCRIÇÃO */
+.card-body p {
+  font-size: 0.85rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* PREÇO EM DESTAQUE */
+.card-body p:nth-of-type(2) {
+  font-size: 1rem;
+  color: #ff6600;
+  font-weight: bold;
+}
+
+/* BOTÃO COMPRAR */
+.card-body button {
+  margin-top: auto;
+  padding: 8px;
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.card-body button:hover {
+  background: #c24d00;
+}
+
+.card {
+  position: relative;       /* para o link absoluto funcionar */
+  overflow: hidden;         /* mantém bordas e sombras do card */
+  /* aqui vai seu resto de estilos .card (background, border, etc.) */
+}
+
+/* link transparente que cobre TODO o card */
+.card-link {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  /* opcional: cursor de link */
+  cursor: pointer;
+  /* mantém o card-body e botão sobre o link */
+}
+
+/* para que botão "Comprar" fique acima do link e seja clicável */
+.card-body,
+.card-button {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* FOOTER */
+footer {
+  background: #23272a;
+  color: #fff;
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 32px;
+}
