@@ -183,8 +183,8 @@
 .img-zoom-lente {
   position: absolute;
   border: 2px solid #ff4e00;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   visibility: hidden;
   pointer-events: none;
   background-repeat: no-repeat;
