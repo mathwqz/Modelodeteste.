@@ -53,14 +53,14 @@
       <div class="parcelamento">ou 10x de R$ 450,00 sem juros</div>
 
       <button id="comprarBtn" class="comprar">COMPRAR</button>
-
-  <!-- Botão visual de adicionar ao carrinho -->
+      
 <button onclick="addToCart({
-  nome: 'PC Gamer',
-  preco: 2199.00,
-  imagem: 'https://cdn.dooca.store/1841/products/cyberpunk-completo-preto.jpg?v=1734956752',
-  link: '/Eklipse-coding/paginas/carrinho.html',
+  nome: 'Placa de Vídeo NVIDIA GeForce RTX 4070 Ti 12GB GDDR6X',
+  preco: 4500.00,
+  imagem: 'https://http2.mlstatic.com/D_NQ_NP_756408-MLB85623611938_062025-O-placa-de-video-asus-tuf-gf-rtx4070ti-super16gb-btf-open-box.webp',
+  link: '/paginas/essa-pagina.html'
 })">Adicionar ao Carrinho</button>
+
 
   <div class="frete">Frete Grátis*</div>
 </div>
@@ -256,6 +256,71 @@
       });
     });
   </script>
+
+<script>
+  const comprarBtn = document.getElementById('comprarBtn');
+
+  comprarBtn.addEventListener('click', () => {
+    const produto = {
+      nome: 'Placa de Vídeo NVIDIA GeForce RTX 4070 Ti 12GB GDDR6X',
+      preco: 4500.00,
+      imagem: 'https://http2.mlstatic.com/D_NQ_NP_756408-MLB85623611938_062025-O-placa-de-video-asus-tuf-gf-rtx4070ti-super16gb-btf-open-box.webp',
+      link: window.location.pathname
+    };
+
+    // Recupera o carrinho atual do localStorage
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    // Adiciona o produto
+    carrinho.push(produto);
+
+    // Salva de volta
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Atualiza contador visual (caso tenha)
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = carrinho.length;
+
+    // Redireciona para o carrinho
+    window.location.href = '/paginas/carrinho.html';
+  });
+</script>
+
+<script>
+  function addToCart(produto) {
+    // Salvar no carrinho completo (usado no carrinho.html)
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Salvar na prévia do carrinho (usado no floating-cart)
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    cartList.push(produto);
+    localStorage.setItem('cartList', JSON.stringify(cartList));
+
+    // Atualizar contador total
+    const totalItens = carrinho.length;
+    localStorage.setItem('cartCount', totalItens);
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = totalItens;
+
+    // Redirecionar para o carrinho
+    window.location.href = '/paginas/carrinho.html';
+  }
+
+  // Exemplo: botão de compra
+  document.getElementById('comprarBtn').addEventListener('click', () => {
+    const produto = {
+      nome: 'Placa de Vídeo NVIDIA GeForce RTX 4070 Ti 12GB GDDR6X',
+      preco: 4500.00,
+      imagem: 'https://http2.mlstatic.com/D_NQ_NP_756408-MLB85623611938_062025-O-placa-de-video-asus-tuf-gf-rtx4070ti-super16gb-btf-open-box.webp',
+      link: window.location.pathname
+    };
+    addToCart(produto);
+  });
+</script>
+
+
 </body>
 </html>
 

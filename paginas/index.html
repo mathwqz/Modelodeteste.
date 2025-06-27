@@ -30,6 +30,36 @@
       font-size: 14px;
     }
   </style>
+
+<script>
+  // Função para exibir o carrinho flutuante
+  function showCartPreview() {
+    const cart = JSON.parse(localStorage.getItem("cartList")) || [];
+    const preview = document.getElementById("cart-preview");
+    const total = document.getElementById("cart-preview-total");
+    preview.innerHTML = "";
+    let totalValor = 0;
+
+    cart.slice(-3).forEach(item => {
+      totalValor += item.preco;
+      const li = document.createElement("li");
+      li.style.marginBottom = "10px";
+      li.innerHTML = `
+        <img src="${item.imagem}" alt="${item.nome}" style="width:40px; vertical-align:middle; margin-right:10px;"> 
+        <a href="${item.link}" style="color:#333; text-decoration:none;">${item.nome}</a>
+      `;
+      preview.appendChild(li);
+    });
+
+    total.textContent = "R$ " + totalValor.toFixed(2).replace('.', ',');
+    document.getElementById("floating-cart").style.display = "block";
+  }
+
+</script>
+ 
+
+
+
 </head>
 <body>
   <header class="main-header">
@@ -168,7 +198,6 @@
       <div class="filter-box">
         <h3>TOP OFERTA</h3>
         <label><input type="checkbox" class="filtro" data-filtro="frete-gratis"> 🚚 Frete grátis</label><br>
-        <label><input type="checkbox" class="filtro" data-filtro="openbox"> 🐱 OpenBox</label><br>
         <label><input type="checkbox" class="filtro" data-filtro="prime-ninja"> ✨ Prime Ninja</label>
       </div>
 
@@ -207,18 +236,23 @@
           </div>
         </div>
         
-      <div class="card sem-fio prime-ninja">
-          <a href="/paginas/mouse.html" class="card-link"></a>
-          <img src="https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg" alt="Mouse Gamer" />
-          <div class="card-body">
-            <h4>Mouse Gamer Razer Viper V3</h4>
-            <span class="frete-gratis">Frete grátis</span>
-            <p class="preco-antigo">R$ 329,99</p>
-            <p class="preco-destaque">R$ 299,99</p>
-            <p class="parcelamento">ou 10x de R$ 29,99</p>
-            <button class="card-button">COMPRAR</button>
-          </div>
-        </div>
+   <div class="card sem-fio frete-gratis prime-ninja kabum">
+  <a href="/paginas/mouse.html" class="card-link"></a>
+  <img src="https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg" alt="Mouse Gamer" />
+  <div class="card-body">
+    <h4>Mouse Gamer Razer Viper V3</h4>
+    <span class="frete-gratis">Frete grátis</span>
+    <p class="preco-antigo">R$ 329,99</p>
+    <p class="preco-destaque">R$ 299,99</p>
+    <p class="parcelamento">ou 10x de R$ 29,99</p>
+    <button class="card-button" onclick="addToCart({
+      nome: 'Mouse Gamer Razer Viper V3',
+      preco: 299.99,
+      imagem: 'https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg',
+      link: '/paginas/mouse.html'
+    })">COMPRAR</button>
+  </div>
+</div>
 
             <div class="card">
           <img src="https://ae01.alicdn.com/kf/Sd42516e6721d4e0b92c82b5f39b8b1782.jpg" alt="RTX 3070 Soyo" />
@@ -228,7 +262,13 @@
             <p class="preco-antigo">2.799,99</p>
             <p class="preco-destaque">R$ 2.499,99</p>
             <p class="parcelamento">ou 10x de R$ 249,99</p>
-            <button>Comprar</button>
+            <button class="card-button" onclick="addToCart({
+  nome: 'RTX 3070 Soyo',
+  preco: 2499.99,
+  imagem: 'https://ae01.alicdn.com/kf/Sd42516e6721d4e0b92c82b5f39b8b1782.jpg',
+  link: '/paginas/detalhe.html'
+})">COMPRAR</button>
+
           </div>
         </div>
 
@@ -252,7 +292,13 @@
             <p class="preco-antigo">R$ 499,99</p>
             <p class="preco-destaque">R$ 399,99</p>
             <p class="parcelamento">ou 10x de R$ 39,99</p>
-            <button>Comprar</button>
+            <button class="card-button" onclick="addToCart({
+  nome: 'NOME DO PRODUTO',
+  preco: VALOR, 
+  imagem: 'URL_DA_IMAGEM',
+  link: '/paginas/detalhe.html'
+})">COMPRAR</button>
+
           </div>
         </div>
 
@@ -337,6 +383,7 @@
         <div class="card sem-fio prime-ninja">
           <a href="http://127.0.0.1:3000/paginas/mouse.html" class="card-link"></a>
           <img src="https://images6.kabum.com.br/produtos/fotos/516146/fone-de-ouvido-sem-fio-kabum-tech-bluetooth-preto-ktft500pt_1721248095_g.jpg" alt="Mouse Gamer" />
+          <div class="card com-fio frete-gratis kabum">
           <div class="card-body">
             <h4>Mouse Gamer Razer Viper V3</h4>
             <p>Categoria: Periféricos</p>
@@ -345,6 +392,7 @@
             <p class="parcelamento">ou 10x de R$ 5,99 </p>
             <button class="card-button">COMPRAR</button>
           </div>
+        </div>
         </div>
 
         <!-- Continue seus outros cards normalmente... -->
@@ -356,6 +404,58 @@
   <footer>
     <p>&copy; 2025 EKLIPSE - todos os direitos estão reservados</p>
   </footer>
+
+
+  <script>
+  function updateRange() {
+    const min = document.getElementById("range-min").value;
+    const max = document.getElementById("range-max").value;
+    document.getElementById("output-min").textContent = `R$ ${min}`;
+    document.getElementById("output-max").textContent = `R$ ${max}`;
+    document.getElementById("preco-min").value = min;
+    document.getElementById("preco-max").value = max;
+  }
+
+  function aplicarFiltros() {
+    const filtrosAtivos = Array.from(document.querySelectorAll('.filtro:checked')).map(cb => cb.dataset.filtro);
+    const precoMin = parseFloat(document.getElementById('preco-min').value || 0);
+    const precoMax = parseFloat(document.getElementById('preco-max').value || Infinity);
+
+    document.querySelectorAll('.product-grid .card').forEach(card => {
+      const precoTexto = card.querySelector('.preco-destaque')?.textContent || "0";
+      const precoNumerico = parseFloat(precoTexto.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
+
+      const temFiltroCategoria = filtrosAtivos.length === 0 || filtrosAtivos.every(filtro => card.classList.contains(filtro));
+      const dentroFaixaPreco = precoNumerico >= precoMin && precoNumerico <= precoMax;
+
+      if (temFiltroCategoria && dentroFaixaPreco) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function resetarFiltros() {
+    document.querySelectorAll('.filtro').forEach(cb => cb.checked = false);
+    document.getElementById("range-min").value = 500;
+    document.getElementById("range-max").value = 6000;
+    document.getElementById("preco-min").value = "";
+    document.getElementById("preco-max").value = "";
+    updateRange();
+
+    document.querySelectorAll('.product-grid .card').forEach(card => {
+      card.style.display = 'flex';
+    });
+  }
+
+
+  // Inicializa os valores do range na tela ao carregar
+  window.onload = () => {
+    updateRange();
+  }
+</script>
+
 
   <!-- SCRIPTS -->
   <script src="/js/script.js"></script>
@@ -469,6 +569,7 @@
       document.getElementById("preco-max").value = "";
       document.querySelectorAll('.product-grid .card').forEach(card => card.style.display = 'flex');
     }
+ 
   </script>
 </body>
 </html>
