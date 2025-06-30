@@ -118,3 +118,25 @@ document.addEventListener("DOMContentLoaded", () => {
     cards.forEach(card => (card.style.display = "flex"));
   });
 });
+
+
+window.addEventListener('load', () => {
+  const tempo = performance.now();
+  console.log(`A página carregou em ${tempo.toFixed(2)} milissegundos.`);
+});
+
+// JavaScript (script.js)
+let inicio; // variável para armazenar o tempo inicial
+
+document.getElementById("botao").addEventListener("click", () => {
+  inicio = performance.now(); // marca o tempo quando o botão é clicado
+
+  // Simula uma ação que demora (como carregar dados)
+  setTimeout(() => {
+    const fim = performance.now(); // marca o tempo quando a ação termina
+    const duracao = fim - inicio; // calcula o tempo total
+    console.log(`Tempo de resposta: ${duracao.toFixed(2)} milissegundos.`);
+  }, 500); // espera 500ms (simulando um atraso)
+});
+
+

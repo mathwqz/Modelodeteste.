@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placa Mãe ASUS TUF</title>
+  <link rel="stylesheet" href="/paginas-dos-produtos/css/produtos.css" />
+  <style>
+    .thumb.active {
+      border: 2px solid #ff4e00;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .tab.active { font-weight: bold; color: #ff4e00; }
+    .img-zoom-lente {
+      position: absolute;
+      border: 1px solid #ccc;
+      width: 100px;
+      height: 100px;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="/pagina inicial/html/index.html" class="logo-link">
+        <img src="/pagina inicial/image/logo-do-site.png" alt="EKLIPSE Logo" class="logo-img" />
+      </a>
+    </div>
+
+    <input type="text" id="search" placeholder="Buscar produtos..." />
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">PC Gamer</a></li>
+        <li><a href="#">Hardware</a></li>
+        <li><a href="#">Periféricos</a></li>
+        <li><a href="#">Monitores</a></li>
+        <li><a href="#">Acessórios</a></li>
+      </ul>
+    </nav>
+    <div class="cart">🛒<span id="cart-count">0</span></div>
+  </header>
+
+  <main class="produto-page">
+    <div class="top-section">
+      <div class="galeria">
+        <div class="thumbnails">
+          <img src="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_original.jpg" data-large="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_original.jpg" class="thumb active" alt="Miniatura 1">
+          <img src="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-am4-matx-ddr4_1724074976_original.jpg" data-large="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-am4-matx-ddr4_1724074976_original.jpg" class="thumb active" alt="Miniatura 2">
+          <img src="https://dlcdnwebimgs.asus.com/gain/308e8189-5ea1-4ead-b5ef-2aa7b2c2692e/w800" data-large="https://dlcdnwebimgs.asus.com/gain/308e8189-5ea1-4ead-b5ef-2aa7b2c2692e/w800" class="thumb active" alt="Miniatura 3">
+          <img src="https://dlcdnimgs.asus.com/websites/global/products/bvceys3w8ug0apoa/img/kv/x570.png" data-large="https://dlcdnimgs.asus.com/websites/global/products/bvceys3w8ug0apoa/img/kv/x570.png" class="thumb active" alt="Miniatura 4">
+        </div>
+        <div class="imagem-principal" style="position: relative;">
+          <img id="zoom-img" src="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_original.jpg" alt="Placa Mãe ASUS TUF">
+          <div id="zoom-lente" class="img-zoom-lente"></div>
+        </div>
+      </div>
+
+      <div class="info">
+        <h1>Placa Mãe ASUS TUF</h1>
+        <div class="promo">Categoria: <strong>RAM</strong></div>
+        <div class="preco">R$ 629,99 <span class="pix">(à vista no PIX com 15% OFF)</span></div>
+        <p class="preco-antigo" style="text-decoration: line-through; color: #ccc">R$ 741,16</p>
+        <div class="parcelamento">ou 10x de R$ 74,11 sem juros</div>
+
+        <button id="comprarBtn" class="comprar">COMPRAR</button>
+
+        <button class="adicionar-carrinho" onclick="addToCart({
+          nome: 'Placa Mãe ASUS TUF',
+          preco: 629.99,
+          imagem: 'https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_original.jpg',
+          link: '/paginas-dos-produtos/páginas/Placa Mãe ASUS TUF.html'
+        })">Adicionar ao Carrinho</button>
+
+        <div class="frete">Frete Grátis*</div>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <div class="tab active" data-tab="descricao">Descrição do Produto</div>
+      <div class="tab" data-tab="tecnica">Informações Técnicas</div>
+      <div class="tab" data-tab="avaliacoes">Avaliações dos Usuários</div>
+    </nav>
+
+    <section id="descricao" class="tab-content descricao active">
+      <h2>Descrição do Produto</h2>
+      <p>A ASUS TUF Gaming é a escolha ideal para gamers e entusiastas que exigem desempenho bruto, durabilidade e confiabilidade extrema. Projetada com componentes militares de alta qualidade e um design robusto, essa placa-mãe garante estabilidade mesmo nas batalhas mais intensas.</p>
+    </section>
+
+    <section id="tecnica" class="tab-content tecnica">
+      <h2>Informações Técnicas</h2>
+      <dl>
+        <dt>Chipset</dt><dd>B550</dd>
+        <dt>Socket</dt><dd>Compatível com processadores AMD Ryzen ou Intel Core de última geração</dd>
+        <dt>Suporte para Memória RAM</dt><dd>DDR4 até 128GB, com overclocking</dd>
+        <dt>Armazenamento</dt><dd>Slots M.2 NVMe, SATA 6Gb/s</dd>
+        <dt>Expansão</dt><dd>Suporte a múltiplas placas de vídeo (PCIe x16)</dd>
+        <dt>Rede</dt><dd>Ethernet de alta velocidade e versões com Wi-Fi integrado</dd>
+        <dt>Áudio</dt><dd>Som cristalino com tecnologia TUF Gaming Audio</dd>
+      </dl>
+    </section>
+
+    <section id="avaliacoes" class="tab-content avaliacoes">
+      <div class="avaliacoes-header">
+        <div class="nota">5/5</div>
+        <div class="estrelas">★★★★★ <span>(22 avaliações)</span></div>
+      </div>
+      <div class="cards-avaliacao">
+        <div class="card">
+          <h4>M4rkim</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 15/06/2025</div>
+          <p>Placa braba, segura tudo sem esquentar – perfeita pra quem joga e exige desempenho!</p>
+          <div class="util">Útil (6)</div>
+        </div>
+        <div class="card">
+          <h4>Anirap</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 12/06/2025</div>
+          <p>Robusta, confiável e com um visual incrível – minha melhor escolha até agora!</p>
+          <div class="util">Útil (4)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+     <!-- PRODUTOS RELACIONADOS -->
+      <section class="related-products">
+        <h3><span style="color: #ff4e00;">🏷</span> <strong>PRODUTOS RELACIONADOS</strong></h3>
+        <div class="related-wrapper">
+          <button class="related-nav prev" onclick="scrollRelated(-1)">❮</button>
+          <div class="related-scroll" id="related-scroll">
+            <div class="related-card">
+              <img src="https://images2.kabum.com.br/produtos/fotos/392052/placa-mae-asus-tuf-gaming-b650m-plus-amd-am5-b650-matx-ddr5-90mb1bg0-m0eay0_1667218379_g.jpg" alt="Placa 1">
+              <p class="related-price">R$ 1.529,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images6.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-am4-matx-ddr4_1724074976_g.jpg" alt="Placa 2">
+              <p class="related-price">R$ 939,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images0.kabum.com.br/produtos/fotos/113870/placa-mae-asus-prime-b550m-a-amd-am4-matx-ddr4_1593548521_g.jpg" alt="Placa 3">
+              <p class="related-price">R$ 772,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images9.kabum.com.br/produtos/fotos/444049/placa-mae-asus-tuf-gaming-x670e-plus-amd-x670-am5-ddr5-90mb1bj0-c1bay0_1685995492_g.jpg" alt="Placa 4">
+              <p class="related-price">R$ 2.189,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images6.kabum.com.br/produtos/fotos/521066/placa-mae-asus-prime-a620m-e-amd-am5-a620-matx-ddr5-90mb1f50-m0eay0_1720800197_g.jpg" alt="Placa 5">
+              <p class="related-price">R$ 727,99</p>
+            </div>
+          </div>
+          <button class="related-nav next" onclick="scrollRelated(1)">❯</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 EKLIPSE - Inspirado em Terabyte, Pichau e Kabum</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    document.getElementById('comprarBtn').addEventListener('click', () => {
+      const isUserLoggedIn = false;
+      if (!isUserLoggedIn) {
+        window.location.href = '/Eklipse-coding/login/login.html';
+      } else {
+        window.location.href = '/checkout?add=4070TI&qty=1';
+      }
+    });
+
+    function addToCart(produto) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push(produto);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      document.getElementById('cart-count').textContent = carrinho.length;
+    }
+
+    const zoomImg = document.getElementById('zoom-img');
+    const lens = document.getElementById('zoom-lente');
+    const cx = 2;
+
+    zoomImg.addEventListener('mousemove', moveLens);
+    zoomImg.addEventListener('mouseenter', () => lens.style.visibility = 'visible');
+    zoomImg.addEventListener('mouseleave', () => lens.style.visibility = 'hidden');
+
+    function moveLens(e) {
+      const rect = zoomImg.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      const half = lens.offsetWidth / 2;
+      x = Math.max(half, Math.min(x, zoomImg.width - half));
+      y = Math.max(half, Math.min(y, zoomImg.height - half));
+      lens.style.left = (x - half) + 'px';
+      lens.style.top = (y - half) + 'px';
+      lens.style.backgroundImage = `url('${zoomImg.src}')`;
+      lens.style.backgroundSize = `${zoomImg.width * cx}px ${zoomImg.height * cx}px`;
+      lens.style.backgroundPosition = `-${(x * cx) - half}px -${(y * cx) - half}px`;
+    }
+
+    document.querySelectorAll('.thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    // Atualiza a imagem principal com a da miniatura clicada
+    const newSrc = thumb.getAttribute('data-large');
+    zoomImg.src = newSrc;
+
+    // Atualiza a imagem do zoom também
+    lens.style.backgroundImage = `url('${newSrc}')`;
+
+    // Remove 'active' de todas as miniaturas e adiciona à clicada
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  });
+});
+
+  function addToCart(produto) {
+    // Salvar no carrinho completo (usado no carrinho.html)
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Salvar na prévia do carrinho (usado no floating-cart)
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    cartList.push(produto);
+    localStorage.setItem('cartList', JSON.stringify(cartList));
+
+    // Atualizar contador total
+    const totalItens = carrinho.length;
+    localStorage.setItem('cartCount', totalItens);
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = totalItens;
+
+    // Redirecionar para o carrinho
+    window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
+  }
+
+  // Atualiza contador de itens no carrinho
+  document.addEventListener('DOMContentLoaded', () => {
+    const contador = document.getElementById('cart-count');
+    const totalItens = localStorage.getItem('cartCount') || 0;
+    if (contador) contador.textContent = totalItens;
+  });
+
+  </script>
+</body>
+</html>
