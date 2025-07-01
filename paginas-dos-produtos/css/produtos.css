@@ -281,6 +281,7 @@
       margin-top: 32px;
     }
 
+
     /* Responsivo */
     @media (max-width: 768px) {
       .top-section { flex-direction: column; }
