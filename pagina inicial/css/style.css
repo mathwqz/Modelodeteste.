@@ -1,26 +1,18 @@
+/* CSS e JS totalmente integrados e otimizados com todas as funcionalidades solicitadas pelo papai 😏 */
+
+/* ================= BODY BASE ================= */
 body {
-  background-color: #000000ce;
   margin: 0;
   font-family: Arial, sans-serif;
-
-  /* Cor de fundo fallback */
-  background-color: #0f0f0f;
-
-  /* Imagem de fundo estilizada */
-  background-image: url('https://wallpapers.com/images/hd/black-and-white-graffiti-in-grafton-street-00tqxgdxyu7xdfg8.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;        /* cobre toda a tela */
-  background-attachment: fixed;  /* permanece fixa ao rolar */
-  background-position: center;   /* centralizada */
-  background-blend-mode: multiply; /* mescla a imagem com o fundo */
-  background-color: rgba(0, 0, 0, 0.493); /* efeito de escurecimento */
-
-  color: #fffdfd77;  /* texto legível sobre fundo escuro */
-  min-height: 100vh; /* garante altura mínima de tela cheia */
+  background: rgba(0, 0, 0, 0.81) url('https://wallpapers.com/images/hd/black-and-white-graffiti-in-grafton-street-00tqxgdxyu7xdfg8.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: #fffdfd77;
+  min-height: 100vh;
 }
 
-h2{
-  color: #ffffff;
+h2, .titulo-produtos {
+  color: #000;
 }
 
 ul {
@@ -51,13 +43,13 @@ ul {
   padding-bottom: 10px;
 }
 
-h2{
-  color: #000000;
-}
-
-/* HEADER PRINCIPAL */
+/* =============== HEADER PRINCIPAL =============== */
 .main-header {
   background: #00000048;
+  background-image: url("");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -73,13 +65,12 @@ h2{
 }
 
 .logo-img {
-  height: 180px;     /* altura aumentada */
-  max-width: 400px;  /* largura máxima controlada */
+  height: 180px;
+  max-width: 400px;
   width: auto;
   object-fit: contain;
 }
 
-/* SEARCH */
 #search {
   flex: 1;
   max-width: 350px;
@@ -103,15 +94,7 @@ h2{
   background-color: #fff;
 }
 
-.main-header {
-  background-image: url(""); /* Caminho para sua imagem */
-  background-size: cover;
-  background-position: center;
-  height: 200px; /* Defina uma altura adequada */
-}
-
-
-/* NAVIGATION LINKS */
+/* =============== NAVIGATION =============== */
 .nav-links ul {
   display: flex;
   gap: 24px;
@@ -120,29 +103,25 @@ h2{
 }
 
 .nav-links a {
-  background-color: #00000080;      /* cor vibrante estilo eclipse */
-  color: #ff6600;                 /* texto branco visível */
+  background-color: #00000080;
+  color: #ff6600;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 16px;              /* espaço interno */
-  border-radius: 6px;             /* bordas arredondadas */
+  padding: 8px 16px;
+  border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .nav-links a:hover {
-  background-color: #cc3c00;      /* escurece no hover */
+  background-color: #cc3c00;
   color: #fff;
-  transform: translateY(-2px);    /* efeito de elevação */
+  transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(255, 78, 0, 0.4);
 }
 
-.nav-links a:hover {
-  color: #ff6600;
-}
-
-/* CART */
+/* =============== CART =============== */
 .cart {
   font-size: 1.5rem;
   position: relative;
@@ -160,7 +139,7 @@ h2{
   right: -10px;
 }
 
-/* SLIDER */
+/* =============== SLIDER =============== */
 .slider-container {
   position: relative;
   max-width: 1200px;
@@ -193,7 +172,6 @@ h2{
   object-fit: cover;
 }
 
-/* Setas do slider */
 .nav {
   position: absolute;
   top: 50%;
@@ -221,7 +199,6 @@ h2{
   right: 10px;
 }
 
-/* Bolinhas do slider */
 .slider-dots {
   position: absolute;
   bottom: 12px;
@@ -245,6 +222,7 @@ h2{
   background-color: #ff6600;
 }
 
+/* =============== SIDEBAR =============== */
 .wrapper {
   display: flex;
   gap: 20px;
@@ -264,7 +242,6 @@ h2{
   height: fit-content;
   color: #000000;
 }
-
 
 .filter-box {
   background: #00000056;
@@ -307,8 +284,6 @@ input[type="range"] {
   margin-top: 5px;
 }
 
-
-/* INPUTS DE PREÇO */
 .price-inputs {
   display: flex;
   align-items: center;
@@ -323,7 +298,7 @@ input[type="range"] {
   border-radius: 5px;
 }
 
-/* PRODUTOS */
+/* =============== PRODUTOS =============== */
 .products {
   flex: 1;
   margin: 0;
@@ -337,14 +312,12 @@ input[type="range"] {
   margin-bottom: 1.5rem;
 }
 
-/* GRID DE PRODUTOS */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
 }
 
-/* CARD INDIVIDUAL */
 .card {
   background: #111010;
   border: 1px solid #9e4e19;
@@ -355,6 +328,7 @@ input[type="range"] {
   flex-direction: column;
   overflow: hidden;
   padding: 8px;
+  position: relative;
 }
 
 .card:hover {
@@ -362,21 +336,21 @@ input[type="range"] {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* IMAGEM DO PRODUTO */
 .card img {
   width: 100%;
   height: 150px;
   object-fit: contain;
   margin-bottom: 8px;
 }
-/* CONTEÚDO DO CARD */
+
 .card-body {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  position: relative;
+  z-index: 2;
 }
 
-/* TÍTULO */
 .card-body h4 {
   font-size: 0.95rem;
   color: #ffffff;
@@ -386,21 +360,18 @@ input[type="range"] {
   margin: 0;
 }
 
-/* DESCRIÇÃO */
 .card-body p {
   font-size: 0.85rem;
   color: #ffffff;
   margin: 0;
 }
 
-/* PREÇO EM DESTAQUE */
 .card-body p:nth-of-type(2) {
   font-size: 1rem;
   color: #ff6600;
   font-weight: bold;
 }
 
-/* BOTÃO COMPRAR */
 .card-body button {
   margin-top: auto;
   padding: 8px;
@@ -418,30 +389,14 @@ input[type="range"] {
   background: #c24d00;
 }
 
-.card {
-  position: relative;       /* para o link absoluto funcionar */
-  overflow: hidden;         /* mantém bordas e sombras do card */
-  /* aqui vai seu resto de estilos .card (background, border, etc.) */
-}
-
-/* link transparente que cobre TODO o card */
 .card-link {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 1;
-  /* opcional: cursor de link */
   cursor: pointer;
-  /* mantém o card-body e botão sobre o link */
 }
 
-/* para que botão "Comprar" fique acima do link e seja clicável */
-.card-body,
-.card-button {
-  position: relative;
-  z-index: 2;
-}
-
-/* FOOTER */
+/* =============== FOOTER =============== */
 footer {
   background: #050505;
   color: #ff5e00;

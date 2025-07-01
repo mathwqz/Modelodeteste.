@@ -134,6 +134,41 @@
     window.addEventListener('DOMContentLoaded', carregarCarrinho);
   </script>
 
+  <script>
+  function atualizarContadorCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = carrinho.length;
+  }
+
+  // Atualiza o contador assim que a página carregar
+  window.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
+</script>
+
+<script>
+  function addToCart(produto) {
+    // Adiciona ao carrinho principal
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Atualiza contador no ícone do carrinho
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = carrinho.length;
+
+    // Redireciona (se quiser)
+    // window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
+  }
+
+  // Atualiza contador ao carregar a página
+  function atualizarContadorCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = carrinho.length;
+  }
+
+  window.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
+</script>
 
 
 </body>

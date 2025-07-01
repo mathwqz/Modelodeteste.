@@ -57,7 +57,6 @@
 
 </script>
 
-
 </head>
 <body>
   <header class="main-header">
@@ -79,13 +78,16 @@
       </ul>
     </nav>
 
-    <div class="user-actions">
-      <a href="/paginas-dos-produtos/carrinho/carrinho.html" class="cart">
-        🛒<span id="cart-count">6</span>
-      </a>
+   <div class="user-actions">
+  <a href="/paginas-dos-produtos/carrinho/carrinho.html" class="cart">
+    🛒<span id="cart-count">0</span>
+  </a>
+</div>
+
       <a href="/paginas/login.html" class="login-icon">👤</a>
     </div>
   </header>
+
 
   <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
   <div id="floating-cart" style="display:none; position:fixed; top:70px; right:30px; background:white; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.15); padding:10px; border-radius:10px; max-width:300px; z-index:9999;">
@@ -158,7 +160,7 @@
         <img src="https://themes.kabum.com.br/conteudo/layout/6549/1749581108.gif" alt="Promoção 1" />
       </div>
       <div class="slide">
-        <img src="https://themes.kabum.com.br/conteudo/layout/6577/1750161583.png" alt="Promoção 2" />
+        <img src="https://themes.kabum.com.br/conteudo/layout/6642/1751313132.gif" alt="Promoção 2" />
       </div>
       <div class="slide">
         <img src="https://themes.kabum.com.br/conteudo/layout/6552/1749583765.png" alt="Promoção 3" />
@@ -213,8 +215,10 @@
     <main class="products">
       <h2 class="titulo-produtos">Confira nossos produtos em destaque</h2>
       <div id="product-grid" class="product-grid">
+
         <!-- Exemplo de Cards -->
         <div class="card com-fio frete-gratis kabum">
+             <div class="info">
           <a href="/paginas-dos-produtos/páginas/Computador.html" class="card-link"></a>
           <img src="https://cdn.dooca.store/1841/products/cyberpunk-completo-preto.jpg?v=1734956752" alt="PC Gamer" />
           <div class="card-body">
@@ -224,8 +228,10 @@
             <p class="preco-destaque">R$ 2.199,00</p>
             <p class="parcelamento">ou 10x de R$ 219,90</p>
             <button class="card-button" onclick="addToCart()">COMPRAR</button>
+            
           </div>
         </div>
+      </div>
         
    <div class="card sem-fio frete-gratis prime-ninja kabum">
   <a href="/paginas-dos-produtos/páginas/mouse.html" class="card-link"></a>
@@ -254,6 +260,7 @@
            <p class="preco-antigo">R$ 4.600,99</p>
             <p class="preco-destaque">R$ 2.499,99</p>
             <p class="parcelamento">ou 10x de R$ 249,99
+              
             <button class="card-button" onclick="addToCart({})">COMPRAR</button>
 
           </div>
@@ -370,15 +377,13 @@
         </div>
 
         <div class="card sem-fio prime-ninja">
-          <a href="http://127.0.0.1:3000/paginas/mouse.html" class="card-link"></a>
-          <img src="https://images6.kabum.com.br/produtos/fotos/516146/fone-de-ouvido-sem-fio-kabum-tech-bluetooth-preto-ktft500pt_1721248095_g.jpg" alt="Mouse Gamer" />
-          <div class="card com-fio frete-gratis kabum">
+          <a href="/paginas-dos-produtos/páginas/fone.html" class="card-link"></a>
+          <img src="https://images8.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_g.jpg" alt="Mouse Gamer" />
           <div class="card-body">
-            <h4>Mouse Gamer Razer Viper V3</h4>
+            <h4>Headset Gamer Redragon</h4>
             <p>Categoria: Periféricos</p>
-            <p class="preco-antigo">R$ 77,90</p>
-            <p class="preco-destaque">R$ 59,99</p>
-            <p class="parcelamento">ou 10x de R$ 5,99 </p>
+            <p class="preco-antigo">R$ 409,99</p>
+            <p class="preco-destaque">R$ 369,99</p>
             <button class="card-button">COMPRAR</button>
           </div>
         </div>
@@ -562,5 +567,6 @@
     }
  
   </script>
+
 </body>
 </html>
