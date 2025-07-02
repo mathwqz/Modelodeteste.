@@ -55,12 +55,12 @@
   <button id="comprarBtn" class="comprar">COMPRAR</button>
 
  <button onclick="addToCart({
-  nome: 'Mouse Gamer Razer Viper V3',
-  preco: 299.00,
-  imagem: 'https://images5.kabum.com.br/produtos/fotos/715915/mouse-razer-deathadder-v3-30-000dpi-preto-rz0104640100_1744114351_g.jpg',
-  link: '/paginas-dos-produtos/p%C3%A1ginas/MouseGamerRazerViperV3.html'
-})">Adicionar ao Carrinho</button>
-
+ nome : 'Mouse Gamer Razer Viper V3',
+ preco: 299.00,
+ categoria: 'Periférico',
+ imagem: 'https://images5.kabum.com.br/produtos/fotos/715915/mouse-razer-deathadder-v3-30-000dpi-preto-rz0104640100_1744114351_g.jpg',
+ link: '/paginas-dos-produtos/p%C3%A1ginas/mouse.html'
+})" class="adicionar-carrinho">Adicionar ao Carrinho</button>
 
   <div class="frete">Frete Grátis*</div>
 </div>
@@ -260,7 +260,8 @@
   </script>
 
 <script>
-  function addToCart(produto) {
+  // Função para adicionar produto ao carrinho
+   function addToCart(produto) {
     // Salvar no carrinho completo (usado no carrinho.html)
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     carrinho.push(produto);
@@ -281,7 +282,14 @@
     window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
   }
 
-</script>
+  // Atualiza contador de itens no carrinho
+  document.addEventListener('DOMContentLoaded', () => {
+    const contador = document.getElementById('cart-count');
+    const totalItens = localStorage.getItem('cartCount') || 0;
+    if (contador) contador.textContent = totalItens;
+  });
+
+  </script>
 
 
 <style>

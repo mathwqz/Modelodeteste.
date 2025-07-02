@@ -88,6 +88,27 @@
     </div>
   </header>
 
+  
+  <!-- Manual do Usuário (Modal) -->
+<div id="manualModal" class="manual-modal">
+  <div class="manual-content">
+    <span class="close-btn" onclick="fecharManual()">&times;</span>
+    <h2>👋 Bem-vindo à EKLIPSE!</h2>
+    <p>Este é o seu guia rápido para aproveitar o melhor do nosso site:</p>
+    <ul>
+      <li><strong>🛒 Adicionar ao Carrinho:</strong> Clique em <em>“Adicionar ao Carrinho”</em> para guardar seus produtos.</li>
+      <li><strong>🔍 Buscar Produtos:</strong> Use a barra de busca no topo para procurar qualquer item.</li>
+      <li><strong>💳 Comprar:</strong> Clique em <em>“Comprar”</em> para iniciar o processo de login e pagamento.</li>
+      <li><strong>📦 Carrinho:</strong> Veja os itens selecionados no ícone do carrinho no topo direito.</li>
+    </ul>
+    <p>Aproveite sua experiência com a EKLIPSE!</p>
+    <button onclick="fecharManual()">Entendi</button>
+  </div>
+</div>
+<link rel="stylesheet" href="/pagina inicial/css/style.css">
+<script src="/pagina inicial/script/script.js" defer></script>
+
+
 
   <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
   <div id="floating-cart" style="display:none; position:fixed; top:70px; right:30px; background:white; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.15); padding:10px; border-radius:10px; max-width:300px; z-index:9999;">
@@ -364,14 +385,14 @@
         </div>
 
         <div class="card sem-fio prime-ninja">
-          <a href="/pages.html" class="card-link"></a>
-          <img src="https://images2.kabum.com.br/produtos/fotos/416202/teclado-gamer-rise-mode-g1-full-usb-preto-rm-tg-01-fb_1715018384_g.jpg" alt="Mouse Gamer" />
+          <a href="/paginas-dos-produtos/páginas/teclado.html" class="card-link"></a>
+          <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg" alt="Teclado Gamer" />
           <div class="card-body">
-            <h4>Mouse Gamer Razer Viper V3</h4>
+            <h4></h4>
               <p>Categoria: Periféricos</p>
-            <p class="preco-antigo">R$ 37,49</p>
-            <p class="preco-destaque">R$ 29,99</p>
-            <p class="parcelamento">ou 10x de R$ 2,99</p>
+            <p class="preco-antigo">R$ 1.189,90</p>
+            <p class="preco-destaque">R$ 1.099,90</p>
+            <p class="parcelamento">ou 10x de R$ 109,99</p>
             <button class="card-button">COMPRAR</button>
           </div>
         </div>
@@ -384,6 +405,7 @@
             <p>Categoria: Periféricos</p>
             <p class="preco-antigo">R$ 409,99</p>
             <p class="preco-destaque">R$ 369,99</p>
+            <p class="parcelamento">ou 10x de R$ 36,99</p>
             <button class="card-button">COMPRAR</button>
           </div>
         </div>

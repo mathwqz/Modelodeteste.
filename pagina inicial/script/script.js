@@ -140,5 +140,18 @@ document.getElementById("botao").addEventListener("click", () => {
 });
 
 
+function abrirManual() {
+  const modal = document.getElementById('manualModal');
+  if (!localStorage.getItem('manualVisto')) {
+    modal.style.display = 'block';
+  }
+}
 
+function fecharManual() {
+  const modal = document.getElementById('manualModal');
+  modal.style.display = 'none';
+  localStorage.setItem('manualVisto', 'true');
+}
+
+window.addEventListener('DOMContentLoaded', abrirManual);
 

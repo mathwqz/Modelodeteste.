@@ -55,11 +55,12 @@
     COMPRAR
   </button>
 
- <button onclick="addToCart({
-  nome: 'PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM, Radeon Vega 7 Integrado, SSD 480GB M.2, 500W, 3 Fans RGB',
-  preco: 2399.99,
-  imagem: 'https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg',
-  link: '/paginas-dos-produtos/p%C3%A1ginas/Computador.html'
+  <button class="adicionar-carrinho" onclick="addToCart({
+          nome: 'PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM, Radeon Vega 7 Integrado, SSD 480GB M.2, 500W, 3 Fans RGB',
+          preco: 2399.99,
+          categoria: 'PC Gamer',
+          imagem: 'https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg',
+          link: '/paginas-dos-produtos/p%C3%A1ginas/Computador.html'
 })">Adicionar ao Carrinho</button>
 
   <div class="frete">Frete Grátis*</div>
@@ -261,48 +262,37 @@
     });
   </script>
 
-   <script>
-  document.getElementById('comprarBtn').addEventListener('click', () => {
-    // Aqui você pode verificar status de login via cookie, localStorage, API, etc.
-    const isUserLoggedIn = false; // Simulação: altere de acordo com seu sistema
-
-    if (!isUserLoggedIn) {
-      // Se não estiver logado, redireciona para página de login/cadastro
-      window.location.href = '/Eklipse-coding/login/login.html';
-    } else {
-      // Se já estiver logado, redireciona fase de checkout (exemplo: adiciona ao carrinho e vai ao checkout)
-      const checkoutUrl = '/checkout?add=ID_DO_PRODUTO&qty=1';
-      window.location.href = checkoutUrl;
-    }
-  });
-
-  const comprarBtn = document.getElementById('comprarBtn');
-
-  comprarBtn.addEventListener('click', () => {
-    const produto = {
-      nome: 'PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM, Radeon Vega 7 Integrado, SSD 480GB M.2, 500W, 3 Fans RGB',
-      preco: 2399.99,
-      imagem: 'https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg',
-      link: window.location.pathname
-    };
-
-    // Recupera o carrinho atual do localStorage
+  <script>
+  // Função para adicionar produto ao carrinho
+   function addToCart(produto) {
+    // Salvar no carrinho completo (usado no carrinho.html)
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-    // Adiciona o produto
     carrinho.push(produto);
-
-    // Salva de volta
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-    // Atualiza contador visual (caso tenha)
-    const contador = document.getElementById('cart-count');
-    if (contador) contador.textContent = carrinho.length;
+    // Salvar na prévia do carrinho (usado no floating-cart)
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    cartList.push(produto);
+    localStorage.setItem('cartList', JSON.stringify(cartList));
 
-    // Redireciona para o carrinho
+    // Atualizar contador total
+    const totalItens = carrinho.length;
+    localStorage.setItem('cartCount', totalItens);
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = totalItens;
+
+    // Redirecionar para o carrinho
     window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
+  }
+
+  // Atualiza contador de itens no carrinho
+  document.addEventListener('DOMContentLoaded', () => {
+    const contador = document.getElementById('cart-count');
+    const totalItens = localStorage.getItem('cartCount') || 0;
+    if (contador) contador.textContent = totalItens;
   });
-</script>
+
+  </script>
 
 
 <style>
@@ -330,9 +320,10 @@
 
 </style>
 
-</body>
-</html>
-
  <footer>
     <p>&copy; 2025 EKLIPSE - Inspirado em Terabyte, Pichau e Kabum</p>
   </footer>
+
+</body>
+</html>
+

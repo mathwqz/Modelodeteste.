@@ -58,7 +58,6 @@
   link: '/paginas-dos-produtos/páginas/MonitorGamer24.html'
 })">Adicionar ao Carrinho</button>
 
-
   <div class="frete">Frete Grátis*</div>
 </div>
     </div>
@@ -261,7 +260,8 @@
   </script>
 
 <script>
-  function addToCart(produto) {
+  // Função para adicionar produto ao carrinho
+   function addToCart(produto) {
     // Salvar no carrinho completo (usado no carrinho.html)
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     carrinho.push(produto);
@@ -282,17 +282,14 @@
     window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
   }
 
-  // Exemplo: botão de compra
-  document.getElementById('comprarBtn').addEventListener('click', () => {
-    const produto = {
-      nome: 'Monitor Gamer LG UltraGear 24" FHD, IPS, 180Hz, 1ms GTG, HDR10, DisplayPort e HDMI, AMD FreeSync, NVIDIA G-SYNC, Preto - 24GS60F-B',
-      preco: 899.99,
-      imagem: 'https://images9.kabum.com.br/produtos/fotos/614879/monitor-gamer-lg-ultragear-24-full-hd-ips-180hz-1ms-displayport-e-hdmi-nvidia-g-sync-amd-freesync-hdr10-srgb-99-24gs60f-b_1722881105_g.jpg',
-      link: window.location.pathname
-    };
-    addToCart(produto);
+  // Atualiza contador de itens no carrinho
+  document.addEventListener('DOMContentLoaded', () => {
+    const contador = document.getElementById('cart-count');
+    const totalItens = localStorage.getItem('cartCount') || 0;
+    if (contador) contador.textContent = totalItens;
   });
-</script>
+
+  </script>
 
 
 <style>

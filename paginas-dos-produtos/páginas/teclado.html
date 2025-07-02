@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teclado Gamer Logitech G PRO X TKL RAPID</title>
+  <link rel="stylesheet" href="/paginas-dos-produtos/css/produtos.css" />
+  <style>
+    .thumb.active {
+      border: 2px solid #ff4e00;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .tab.active { font-weight: bold; color: #ff4e00; }
+    .img-zoom-lente {
+      position: absolute;
+      border: 1px solid #ccc;
+      width: 100px;
+      height: 100px;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="/pagina inicial/html/index.html" class="logo-link">
+        <img src="/pagina inicial/image/logo-do-site.png" alt="EKLIPSE Logo" class="logo-img" />
+      </a>
+    </div>
+
+    <input type="text" id="search" placeholder="Buscar produtos..." />
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">PC Gamer</a></li>
+        <li><a href="#">Hardware</a></li>
+        <li><a href="#">Periféricos</a></li>
+        <li><a href="#">Monitores</a></li>
+        <li><a href="#">Acessórios</a></li>
+      </ul>
+    </nav>
+    <div class="cart">🛒<span id="cart-count">0</span></div>
+  </header>
+
+  <main class="produto-page">
+    <div class="top-section">
+      <div class="galeria">
+        <div class="thumbnails">
+          <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg" data-large="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg" class="thumb active" alt="Miniatura 1">
+          <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581672_g.jpg" data-large="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581672_g.jpg" class="thumb active" alt="Miniatura 2">
+          <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581673_g.jpg" data-large="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581673_g.jpg" class="thumb active" alt="Miniatura 3">
+          <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581676_g.jpg" data-large="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581676_g.jpg" class="thumb active" alt="Miniatura 4">
+        </div>
+        <div class="imagem-principal" style="position: relative;">
+          <img id="zoom-img" src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg" alt="Placa Mãe ASUS TUF">
+          <div id="zoom-lente" class="img-zoom-lente"></div>
+        </div>
+      </div>
+
+      <div class="info">
+        <h1>Teclado Gamer Logitech G PRO X TKL RAPID, Switches Magnético-analógicos, Modo Rapid Trigger, Layout US, Preto - 920-013131</h1>
+        <div class="promo">Categoria: <strong>Periféricos</strong></div>
+        <div class="preco">R$ 1.189,90 <span class="pix">(à vista no PIX com 15% OFF)</span></div>
+      <p class="preco-antigo" style="text-decoration: line-through; color: #ccc">R$ 1.399,88</p>
+        <p class="parcelamento">Em até 10x de R$ 139,98 sem juros</p>
+
+        <button id="comprarBtn" class="comprar">COMPRAR</button>
+
+        <button class="adicionar-carrinho" onclick="addToCart({
+          nome: 'Teclado Gamer Logitech G PRO X TKL RAPID, Switches Magnético-analógicos, Modo Rapid Trigger, Layout US, Preto - 920-013131',
+          preco:   1189.90,
+          categoria: 'RAM',
+          imagem: 'https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg',
+          link: '/paginas-dos-produtos/p%C3%A1ginas/Rtx5070.html'
+        })">Adicionar ao Carrinho</button>
+
+        <div class="frete">Frete Grátis*</div>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <div class="tab active" data-tab="descricao">Descrição do Produto</div>
+      <div class="tab" data-tab="tecnica">Informações Técnicas</div>
+      <div class="tab" data-tab="avaliacoes">Avaliações dos Usuários</div>
+    </nav>
+
+    <section id="descricao" class="tab-content descricao active">
+      <h2>Descrição do Produto</h2>
+      <p>O Logitech G PRO X TKL RAPID é um teclado gamer projetado para jogadores competitivos e profissionais de eSports. Com layout Tenkeyless (sem o teclado numérico), ele proporciona mais espaço para o mouse, switches mecânicos intercambiáveis e tecnologia LIGHTSPEED para conexão ultrarrápida sem fio.</p>
+    </section>
+
+    <section id="tecnica" class="tab-content tecnica">
+      <h2>Informações Técnicas</h2>
+      <dl>
+        <dt>🔧 Layout TKL</dt><dd>Mais espaço pro mouse e foco total no jogo.</dd>
+        <dt>🚀 Wireless LIGHTSPEED</dt><dd>Conexão rápida e estável, sem cabos atrapalhando.</dd>
+        <dt>🔁 Switches Mecânicos Intercambiáveis</dt><dd>Escolha o tipo de toque ideal pra você.</dd>
+        <dt>🌈 RGB LIGHTSYNC</dt><dd>Iluminação personalizável com milhões de combinações</dd>
+        <dt>🧱 Construção Premium</dt><dd>Feito pra durar mesmo nas partidas mais intensas</dd>
+        <dt>💻 Compatível com Windows e macOS</dt>
+      </dl>
+    </section>
+
+    <section id="avaliacoes" class="tab-content avaliacoes">
+      <div class="avaliacoes-header">
+        <div class="nota">5/5</div>
+        <div class="estrelas">★★★★★ <span>(22 avaliações)</span></div>
+      </div>
+      <div class="cards-avaliacao">
+        <div class="card">
+          <h4>Amanda</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 10/05/2025</div>
+          <p>Excelente pra quem busca precisão e conforto 👌. Teclas rápidas, suaves e o TKL ajuda muito no espaço da mesa!</p>
+          <div class="util">Útil (68)</div>
+        </div>
+        <div class="card">
+          <h4>Eduardo</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 18/04/2025</div>
+          <p>Acabamento top de linha 🔥, mas senti falta de uma case. Mesmo assim, vale cada centavo.</p>
+          <div class="util">Útil (47)</div>
+        </div>
+      </div>
+      <div class="cards-avaliacao">
+        <div class="card">
+          <h4>Rafael</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 28/05/2025</div>
+          <p>Teclado rápido, sem fio e sem atraso! Ideal pra quem joga competitivo 🎮📶.</p>
+          <div class="util">Útil (32)</div>
+        </div>
+        <div class="card">
+          <h4>Fallen</h4>
+          <div class="estrelas estrela">★★★★★</div>
+          <div class="data">Avaliado em 05/06/2025</div>
+          <p>Uso o G PRO X TKL nos treinos e jogos oficiais. Ele responde com precisão e confiabilidade em alto nível 💪⌨️.</p>
+          <div class="util">Útil (138k)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+     <!-- PRODUTOS RELACIONADOS -->
+      <section class="related-products">
+        <h3><span style="color: #ff4e00;">🏷</span> <strong>PRODUTOS RELACIONADOS</strong></h3>
+        <div class="related-wrapper">
+          <button class="related-nav prev" onclick="scrollRelated(-1)">❮</button>
+          <div class="related-scroll" id="related-scroll">
+            <div class="related-card">
+              <img src="https://images0.kabum.com.br/produtos/fotos/93160/93160_1523969683_index_g.jpg" alt="Teclado 1">
+              <p class="related-price">R$ 179,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images3.kabum.com.br/produtos/fotos/416203/teclado-gamer-rise-mode-g1-full-rgb-rainbow-usb-branco-rm-tg-01-fw_1683740597_g.jpg" alt="Teclado 2">
+              <p class="related-price">R$ 37,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images1.kabum.com.br/produtos/fotos/sync_mirakl/623591/large/Teclado-Gamer-Mecanico-Neologic-Crystal-Edge-65-Transparente-Rainbow-Switch-Branco-Cabo-Tipo-C-Abnt2-Nlcrstl-edge_1744315235.jpg" alt="Teclado 3">
+              <p class="related-price">R$ 149,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images1.kabum.com.br/produtos/fotos/621181/teclado-mecanico-gamer-machenike-azul-k500b-b87-switch-brown-87-teclas-80-compacto-hotswap-rgb-3-efeitos-usb-c-branco-e-azul-abnt2_1746553647_g.jpg" alt="Teclado 4">
+              <p class="related-price">R$ 179,99</p>
+            </div>
+            <div class="related-card">
+              <img src="https://images6.kabum.com.br/produtos/fotos/401376/teclado-gamer-redragon-lakshmi-switch-brown-layout-60-abnt2-preto-k606-og-bk-gy-pt-brown-_1700577178_g.jpg" alt="Teclado 5">
+              <p class="related-price">R$ 175,99</p>
+            </div>
+          </div>
+          <button class="related-nav next" onclick="scrollRelated(1)">❯</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 EKLIPSE - Inspirado em Terabyte, Pichau e Kabum</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    document.getElementById('comprarBtn').addEventListener('click', () => {
+      const isUserLoggedIn = false;
+      if (!isUserLoggedIn) {
+        window.location.href = '/Eklipse-coding/login/login.html';
+      } else {
+        window.location.href = '/checkout?add=4070TI&qty=1';
+      }
+    });
+
+    function addToCart(produto) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push(produto);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      document.getElementById('cart-count').textContent = carrinho.length;
+    }
+
+    const zoomImg = document.getElementById('zoom-img');
+    const lens = document.getElementById('zoom-lente');
+    const cx = 2;
+
+    zoomImg.addEventListener('mousemove', moveLens);
+    zoomImg.addEventListener('mouseenter', () => lens.style.visibility = 'visible');
+    zoomImg.addEventListener('mouseleave', () => lens.style.visibility = 'hidden');
+
+    function moveLens(e) {
+      const rect = zoomImg.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      const half = lens.offsetWidth / 2;
+      x = Math.max(half, Math.min(x, zoomImg.width - half));
+      y = Math.max(half, Math.min(y, zoomImg.height - half));
+      lens.style.left = (x - half) + 'px';
+      lens.style.top = (y - half) + 'px';
+      lens.style.backgroundImage = `url('${zoomImg.src}')`;
+      lens.style.backgroundSize = `${zoomImg.width * cx}px ${zoomImg.height * cx}px`;
+      lens.style.backgroundPosition = `-${(x * cx) - half}px -${(y * cx) - half}px`;
+    }
+
+    document.querySelectorAll('.thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    // Atualiza a imagem principal com a da miniatura clicada
+    const newSrc = thumb.getAttribute('data-large');
+    zoomImg.src = newSrc;
+
+    // Atualiza a imagem do zoom também
+    lens.style.backgroundImage = `url('${newSrc}')`;
+
+    // Remove 'active' de todas as miniaturas e adiciona à clicada
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  });
+});
+
+  function addToCart(produto) {
+    // Salvar no carrinho completo (usado no carrinho.html)
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Salvar na prévia do carrinho (usado no floating-cart)
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    cartList.push(produto);
+    localStorage.setItem('cartList', JSON.stringify(cartList));
+
+    // Atualizar contador total
+    const totalItens = carrinho.length;
+    localStorage.setItem('cartCount', totalItens);
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.textContent = totalItens;
+
+    // Redirecionar para o carrinho
+    window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
+  }
+
+  // Atualiza contador de itens no carrinho
+  document.addEventListener('DOMContentLoaded', () => {
+    const contador = document.getElementById('cart-count');
+    const totalItens = localStorage.getItem('cartCount') || 0;
+    if (contador) contador.textContent = totalItens;
+  });
+
+  </script>
+
+<style>
+.adicionar-carrinho {
+  background-color: #ff661f;        /* Azul chamativo */
+  color: rgb(255, 255, 255);       /* Texto branco */       
+  padding: 12px 24px;                /* Espaçamento interno */
+  font-size: 16px;                   /* Tamanho da fonte */
+  font-weight: bold;                 /* Negrito */
+  border-radius: 8px;                /* Cantos arredondados */
+  cursor: pointer;                   /* Ícone de mãozinha */
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave */
+}
+
+.adicionar-carrinho:hover {
+  background-color: #ff661f9a;         /* Azul mais escuro no hover */
+  transform: scale(1.03);            /* Leve zoom ao passar o mouse */
+}
+
+.adicionar-carrinho:active {
+  background-color: #ff661f;         /* Azul ainda mais escuro ao clicar */
+  transform: scale(0.98);            /* Leve contração ao clicar */
+}
+
+</style>
+
+</body>
+</html>
