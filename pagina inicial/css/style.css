@@ -467,6 +467,114 @@ input[type="range"] {
 }
 
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+form select,
+form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+#feedbackMensagem {
+  font-size: 14px;
+  color: #0f0;
+}
+
+
+.btn-voltar {
+  display: inline-block;
+  background-color: #5f2005;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #e64400;
+  transform: scale(1.05);
+}
+
+.btn-voltar:active {
+  background-color: #cc3d00;
+  transform: scale(0.97);
+}
+
+  .user-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .avatar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff4e00;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 8px;
+    min-width: 180px;
+    z-index: 999;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  }
+
+  .dropdown-menu a, .dropdown-menu p {
+    display: block;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #222;
+  }
+
+  #userName {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ff4e00;
+  }
+
+
 
 /* =============== FOOTER =============== */
 footer {

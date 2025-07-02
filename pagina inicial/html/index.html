@@ -69,12 +69,13 @@
 
     <nav class="nav-links">
       <ul>
-        <li><a href="#">Ofertas</a></li>
         <li><a href="#">PC Gamer</a></li>
         <li><a href="#">Hardware</a></li>
         <li><a href="#">Periféricos</a></li>
         <li><a href="#">Monitores</a></li>
         <li><a href="#">Acessórios</a></li>
+        <li><a href="/pagina inicial/html/manual.html">Manual</a></li>
+        <li><a href="/pagina inicial/html/reclamações.html">Reclamações</a></li>
       </ul>
     </nav>
 
@@ -84,8 +85,17 @@
   </a>
 </div>
 
-      <a href="/paginas/login.html" class="login-icon">👤</a>
-    </div>
+<div id="user-area"></div>
+
+<div class="user-menu">
+  <img id="userAvatar" src="/pagina inicial/image/dfkvm5x-516444be-d2e8-40ca-bccf-1dcf91eae48b.png" alt="Avatar" class="avatar-icon" onclick="toggleUserMenu()" />
+  <div id="userDropdown" class="dropdown-menu">
+    <p id="userName">Usuário</p>
+    <a href="/pagina inicial/html/perfil.html">👤 Ver Perfil</a>
+    <a href="/pagina inicial/html/perfil.html" onclick="logout()">🚪 Trocar de Conta</a>
+  </div>
+</div>
+
   </header>
 
   
@@ -107,9 +117,18 @@
 </div>
 <link rel="stylesheet" href="/pagina inicial/css/style.css">
 <script src="/pagina inicial/script/script.js" defer></script>
+  <script>
+    // Exibir o manual do usuário ao carregar a página
+    window.onload = function() {
+      document.getElementById("manualModal").style.display = "block";
+    };
 
+    // Função para fechar o manual
+    function fecharManual() {
+      document.getElementById("manualModal").style.display = "none";
+    }
 
-
+  </script>
   <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
   <div id="floating-cart" style="display:none; position:fixed; top:70px; right:30px; background:white; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.15); padding:10px; border-radius:10px; max-width:300px; z-index:9999;">
     <h4>Resumo do Carrinho</h4>

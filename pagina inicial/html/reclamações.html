@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatar um Problema | EKLIPSE</title>
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000cc; /* NÃO alterado conforme pedido */
+      color: #333;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h1, h3 {
+      font-family: 'Bangers', cursive;
+      text-align: center;
+      color: #ff4e00;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+      color: #fffbfb;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 650px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+      color: #333;
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      background-color: #f9f9f9;
+      transition: border-color 0.3s;
+    }
+
+    select:focus, textarea:focus {
+      border-color: #ff4e00;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button[type="submit"] {
+      background-color: #5f2005;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e64400;
+      transform: scale(1.02);
+    }
+
+    button[type="submit"]:active {
+      background-color: #cc3d00;
+      transform: scale(0.98);
+    }
+
+    #feedbackMensagem {
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #ccc;
+      margin: 30px auto;
+      width: 80%;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+  <h1>🛠 Central de Suporte EKLIPSE</h1>
+  <hr />
+
+  <h3>📝 Relatar um Problema</h3>
+  <p>Teve algum problema com o site? Conte para nós e vamos resolver juntos!</p>
+
+  <form id="feedbackForm">
+    <label for="problema">Tipo de problema:</label>
+    <select id="problema" name="problema" required>
+      <option value="">Selecione...</option>
+      <option value="pagamento">Problema com pagamento</option>
+      <option value="entrega">Problema com entrega</option>
+      <option value="login">Erro ao fazer login</option>
+      <option value="bug">Bug ou falha no site</option>
+      <option value="outro">Outro</option>
+    </select>
+
+    <label for="descricao">Descrição detalhada:</label>
+    <textarea id="descricao" name="descricao" rows="4" required placeholder="Descreva o que aconteceu com o máximo de detalhes..."></textarea>
+
+    <button type="submit">Enviar Relato</button>
+  </form>
+
+  <div id="feedbackMensagem"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('feedbackForm');
+      const mensagem = document.getElementById('feedbackMensagem');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const tipo = document.getElementById('problema').value;
+        const descricao = document.getElementById('descricao').value;
+
+        if (tipo && descricao.trim()) {
+          // Aqui você pode integrar com uma API ou backend
+          console.log("Feedback enviado:", { tipo, descricao });
+
+          mensagem.textContent = '✅ Obrigado pelo seu feedback! Em breve entraremos em contato.';
+          mensagem.style.color = '#28a745';
+
+          form.reset();
+        } else {
+          mensagem.textContent = '⚠️ Por favor, preencha todos os campos.';
+          mensagem.style.color = '#e67e22';
+        }
+      });
+    });
+  </script>
+
+  <div style="text-align: center; margin-top: 40px;">
+  <a href="/pagina inicial/html/index.html" class="btn-voltar">⬅ Voltar para a Página Principal</a>
+</div>
+
+</body>
+</html>

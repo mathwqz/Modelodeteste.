@@ -155,3 +155,35 @@ function fecharManual() {
 
 window.addEventListener('DOMContentLoaded', abrirManual);
 
+
+  function toggleUserMenu() {
+    const menu = document.getElementById("userDropdown");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+
+  // Mostrar nome e avatar ao carregar
+  window.onload = function () {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if (user) {
+      document.getElementById("userName").textContent = user.nome;
+      const avatar = localStorage.getItem(`avatar_${user.email}`);
+      if (avatar) {
+        document.getElementById("userAvatar").src = avatar;
+      }
+    }
+  };
+
+  function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "/pagina inicial/html/login.html";
+  }
+
+  // Fecha menu se clicar fora
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("userDropdown");
+    const avatar = document.getElementById("userAvatar");
+    if (!menu.contains(event.target) && !avatar.contains(event.target)) {
+      menu.style.display = "none";
+    }
+  });
+
