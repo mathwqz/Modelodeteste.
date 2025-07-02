@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manual do Usuário | EKLIPSE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header img {
+      max-width: 200px;
+    }
+
+    h1 {
+      font-family: 'Bangers', cursive;
+      color: #ff4e00;
+      font-size: 3em;
+      margin: 20px 0 10px;
+    }
+
+    .manual-container {
+      max-width: 800px;
+      margin: auto;
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .manual-container h2 {
+      font-family: 'Bangers', cursive;
+      color: #ff4e00;
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .manual-container ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .manual-container li {
+      margin-bottom: 15px;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.1em;
+      line-height: 1.4;
+    }
+
+    .manual-container li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+
+    .manual-container p {
+      font-size: 1em;
+      margin: 20px 0;
+      color: #ddd;
+      text-align: center;
+    }
+
+    .manual-container button {
+      display: block;
+      margin: 30px auto 0;
+      background-color: #ff4e00;
+      color: #fff;
+      border: none;
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 15px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .manual-container button:hover {
+      background-color: #e64400;
+      transform: scale(1.03);
+    }
+
+    .manual-container button:active {
+      background-color: #cc3d00;
+      transform: scale(0.98);
+    }
+
+    .btn-page {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #5f2005;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-page:hover {
+      background-color: #e64400;
+      transform: scale(1.05);
+    }
+
+    .btn-page:active {
+      background-color: #cc3d00;
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+
+      .manual-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="/pagina inicial/html/index.html">
+      <img src="/pagina inicial/image/logo-do-site.png" alt="EKLIPSE Logo">
+    </a>
+    <h1>Manual do Usuário</h1>
+  </header>
+
+  <div class="manual-container">
+    <h2>Bem-vindo à EKLIPSE!</h2>
+    <ul>
+      <li><strong>🔍 Buscar Produtos:</strong> Use a barra de pesquisa no topo para encontrar itens rapidamente.</li>
+      <li><strong>🛒 Adicionar ao Carrinho:</strong> Clique em “Adicionar ao Carrinho” nas páginas de produtos para armazenar itens.</li>
+      <li><strong>💳 Comprar:</strong> Use o botão “Comprar” para iniciar o login e finalizar a compra.</li>
+      <li><strong>📦 Acompanhar Carrinho:</strong> Visualize os itens no ícone de carrinho no topo direito.</li>
+      <li><strong>📸 Galeria e Zoom:</strong> Passe o mouse sobre a imagem principal para ativar o zoom. Clique nas miniaturas para trocar imagens.</li>
+      <li><strong>📄 Informações do Produto:</strong> Navegue entre as abas para ver descrição, dados técnicos e avaliações.</li>
+      <li><strong>👤 Login:</strong> Ao clicar em “Comprar”, você será direcionado ao login para acessar sua conta.</li>
+      <li><strong>✅ Avaliações:</strong> Leia opiniões reais de clientes ou deixe a sua ao usar o produto.</li>
+    </ul>
+
+    <p>Se encontrar algum problema (pagamento, entrega, erros técnicos), relatá-lo é simples: visite nossa Central de Suporte.</p>
+    <a href="/pagina inicial/html/relatar-problema.html" class="btn-page">📌 Central de Suporte</a>
+      <a href="/pagina inicial/html/index.html" class="btn-voltar">⬅ Voltar para a Página Principal</a>
+    </div>
+
+</body>
+</html>

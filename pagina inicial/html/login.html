@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | EKLIPSE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #000; color: #fff; margin: 0; padding: 40px 20px; }
+    .login-container { max-width: 400px; margin: 0 auto; background: #111; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+    h1 { font-family: 'Bangers', cursive; color: #ff4e00; text-align: center; font-size: 3em; margin-bottom: 30px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; color: #ccc; }
+    input[type="email"], input[type="password"] { width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; background-color: #f9f9f9; font-size: 1em; }
+    input:focus { border-color: #ff4e00; outline: none; }
+    button { background-color: #ff4e00; color: white; font-weight: bold; font-size: 16px; padding: 12px; border: none; border-radius: 8px; cursor: pointer; width: 100%; transition: background-color 0.3s ease, transform 0.2s ease; }
+    button:hover { background-color: #e64400; transform: scale(1.02); }
+    button:active { background-color: #cc3d00; transform: scale(0.98); }
+    .message { text-align: center; margin-top: 15px; font-weight: bold; color: #f00; }
+    .back-link, .btn-voltar { display: block; text-align: center; margin-top: 20px; color: #ff4e00; text-decoration: none; font-weight: bold; font-size: 1em; }
+    .back-link:hover, .btn-voltar:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>🔐 Entrar EKLIPSE</h1>
+    <form id="loginForm">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required />
+
+      <button type="submit">Entrar</button>
+      <div class="message" id="loginMessage"></div>
+    </form>
+    <a href="/pagina inicial/html/cadastro.html" class="back-link">Criar Conta</a>
+    <a href="/pagina inicial/html/index.html" class="btn-voltar">⬅ Voltar para a Página Principal</a>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value;
+      const msg = document.getElementById('loginMessage');
+
+      if (!email || !senha) {
+        msg.textContent = '⚠️ Preencha todos os campos!';
+        msg.style.color = 'orange';
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === email && u.senha === senha);
+
+      if (user) {
+        // salva quem entrou
+        localStorage.setItem('currentUser', JSON.stringify({ nome: user.nome, email: user.email }));
+
+        msg.textContent = '✅ Login realizado com sucesso!';
+        msg.style.color = '#28a745';
+        setTimeout(() => window.location.href = '/pagina inicial/html/index.html', 800);
+      } else {
+        msg.textContent = '❌ E-mail ou senha inválidos.';
+        msg.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
